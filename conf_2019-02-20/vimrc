@@ -1,0 +1,78 @@
+set nocompatible
+filetype off
+
+let mapleader="," " remap leader key
+
+set history=100 " history size
+set autoread " Set to auto read when a file is changed from the outside
+set ruler " Always show current position
+set wildignore=*.o,*~,*.pyc,*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store,*/tmp/*,*.so,*.swp,*.zip " Ignore compiled files
+set ignorecase " Ignore case when searching
+set smartcase " When searching try to be smart about cases
+set hlsearch " Highlight search results
+set incsearch " Makes search act like search in modern browsers
+set lazyredraw " Don't redraw while executing macros (good performance config)
+set showmatch " Show matching brackets when text indicator is over them
+set number " Show line numbers 
+set cursorline " Higlight the current line
+set encoding=utf8 " Set utf8 as standard encoding and en_US as the standard language
+set ffs=unix,dos,mac " Use Unix as the standard file type
+" Turn backup off, since most stuff is in git anyway...
+set nobackup
+set nowb
+set noswapfile
+set nowritebackup
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+set laststatus=2 " Always show the status line
+set backspace=2
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set smarttab " First tab on line to shiftwidth
+set smartindent " Indentation after {[( for the next line
+set fileencodings=utf-8,cp1251,latin1
+set showcmd " Track the list of letters typed
+set expandtab
+
+" colorscheme
+set background=dark
+set t_Co=256 " 256 colors in terminal
+
+colorscheme hybrid
+hi olorColumnC cterm=NONE ctermbg=235 guibg=#262626
+
+autocmd FileType make setlocal noexpandtab
+autocmd FileType ruby,eruby,yaml,slim,haml,lua set ai sw=2 sts=2 et
+autocmd FileType ruby,eruby,yaml,slim,haml let &colorcolumn="81,101"
+autocmd FileType ruby,eruby,yaml,slim,haml,lua set list listchars=tab:»·,trail:·,extends:>,precedes:<
+autocmd FileType go let &colorcolumn="101,121"
+
+" Vundle plugins
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin() " Custom paths for Vundle plugins: call vundle#begin('~/some/path/here')
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'fatih/vim-go' " Golang development kit
+Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy search
+Plugin 'mileszs/ack.vim' " Ag search
+Plugin 'vim-airline/vim-airline' " Cool status line
+Plugin 'vim-airline/vim-airline-themes' " Themes for it
+Plugin 'danro/rename.vim' " File renaming from Vim
+Plugin 'tpope/vim-surround' " Change surroundings
+Plugin 'easymotion/vim-easymotion' " Fast file lookups
+Plugin 'ervandew/supertab' " As it says
+Plugin 'tpope/vim-fugitive' " Git wrapper
+Plugin 'gregsexton/gitv' " Gitk tree
+Plugin 'tpope/vim-endwise' " Endings for functions
+Plugin 'mhinz/vim-startify' " Startup screen
+
+
+call vundle#end()
+filetype plugin indent on    " To ignore plugin indent changes, instead use: filetype plugin on
+syntax enable
+
+" :PluginList       - lists configured plugins
+" :PluginClean      - confirms removal of unused plugins; append '!' to auto-approve removal
+
