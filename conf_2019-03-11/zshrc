@@ -44,15 +44,13 @@ SPACESHIP_PROMPT_ORDER=(
 
 #setopt SPACESHIP_TIME_SHOW 
 
-
-
-
 #==========| ZSH SETTINGS |=============
-
-plugins=(
-zsh-autosuggestions
+plugins=(  
 zsh-syntax-highlighting
+git
 )
+
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 #Seperate history for sessions
 #setopt APPEND_HISTORY #SHARED history!!
@@ -71,8 +69,6 @@ setopt NOTIFY
 
 source $ZSH/oh-my-zsh.sh
 
-#=========CUSTOM_FUNCTIONS========
-
 # === | ALIAS | ===
 alias zshrc="vim ~/.zshrc"
 alias szshrc='source ~/.zshrc'
@@ -84,34 +80,22 @@ alias clc='clear'
 alias weather='curl wttr.in/Minsk'
 alias subl='open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias rm='rmtrash' 
-# alias vs='/usr/local/bin/code'
-alias vs='/private/var/folders/h5/v9x1n9bj6fb3bsmdb5z1klch0000gn/T/AppTranslocation/9BF0EE71-14F9-4AFD-8FD8-CD548452DC79/d/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
-#alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport'
+alias ll='ls -la' 
 
-# === | INFO-BLOX k8 Clusters | ===
-
-#start-insert-alias#
-
-#========Exports=========
-#
-export MANPATH="/usr/local/man:$MANPATH"
-
-#Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-
-#JAVA
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"
-
-# Gettext
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-
-# GCloud SDK
-export PATH=$PATH:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
-
-# GNU
-export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
+# GNU tools from coreutils
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-
-export PATH
 export PATH="/usr/local/sbin:$PATH"
+
+
+  # Set Spaceship ZSH as a prompt
+#autoload -U promptinit; promptinit
+#prompt spaceship
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/anton_maslakou/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/anton_maslakou/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/anton_maslakou/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/anton_maslakou/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
