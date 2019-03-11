@@ -1,9 +1,10 @@
-# copy configs:
+#TODO copy configs:
 # vimrc
 # zshrc
 # Iterm2
 # BTT
 # omnigraffle stencils
+
 DATE:=$(shell date +%Y-%m-%d)
 CONF_DIR:=conf_$(DATE)
 #echo $(CONF_DIR);
