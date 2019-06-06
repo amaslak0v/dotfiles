@@ -1,0 +1,87 @@
+#================
+#===== если пизданулись значки - то проблема в fonts в iterm переставить на SourceCodePro+Powerline+Awesome Regular 
+export ZSH=$HOME/.oh-my-zsh
+export TERM="screen-256color"
+
+#========| THEME SETTINGS |===========
+ZSH_THEME="spaceship"
+LS_COLORS=$LS_COLORS:'di=1;35:' ; export LS_COLORS
+
+#==========| ZSH SETTINGS |=============
+plugins=(
+vi-mode
+osx
+git
+docker
+zsh-autosuggestions
+zsh-syntax-highlighting
+)
+
+
+#SPACESHIP_VI_MODE_COLOR=949494
+
+#Seperate history for sessions
+#setopt APPEND_HISTORY #SHARED history!!
+#setopt INC_APPEND_HISTORY
+#searching in history will skip duplicate entries
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_DUPS
+
+# NO FUCKING SHARING HISTORY!!!!!!!!!!!!!
+unsetopt share_history
+
+#Alert if bg jobs running
+setopt CHECK_JOBS
+#Info about bg jobs
+setopt NOTIFY
+
+source $ZSH/oh-my-zsh.sh
+
+#=========CUSTOM_FUNCTIONS========
+
+# === | ALIAS | ===
+alias zshrc="vim ~/.zshrc"
+alias szshrc='source ~/.zshrc'
+alias vimrc='vim ~/.vimrc'
+alias svimrc='source ~/.vimrc'
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias trc='tree -C'
+alias trp='tree -Cpu'
+alias trd='tree -C -d'
+alias clc='clear'
+alias weather='curl wttr.in/Minsk'
+alias subl='open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+alias rm='rmtrash' 
+alias rand='cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n'
+#alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport'
+
+# === | INFO-BLOX k8 Clusters | ===
+alias Tunnel3='ssh -L 8141:localhost:8080 172.16.3.171'
+k8srmt3=http://0.0.0.0:8141
+alias k8s3="kubectl -s $k8srmt3"
+
+
+#========Exports=========
+#
+export MANPATH="/usr/local/man:$MANPATH"
+
+#Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+
+#JAVA
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"
+
+# Gettext
+export PATH="/usr/local/opt/gettext/bin:$PATH"
+
+# GCloud SDK
+export PATH=$PATH:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
+
+# GNU
+export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+export PATH="/Users/amaslakov/Library/Python/3.7/lib/python/site-packages:$PATH"
+export PATH="/usr/local/lib/python3.7/site-packages:$PATH"
+export PATH="/usr/local/sbin:$PATH"

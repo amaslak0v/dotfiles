@@ -1,0 +1,160 @@
+set nocompatible
+
+" View:
+" Colorscheme:
+syntax enable
+set background=dark
+let g:solarized_termcolors=256
+set t_Co=256 " 256 colors in terminal
+colorscheme hybrid
+
+" Numbers:
+" Set line numbers
+set nu
+" Set cursorline background color
+hi CursorLine cterm=NONE ctermbg=235 guibg=#262626
+" Set overlenght limits highlight
+hi ColorColumn cterm=NONE ctermbg=235 guibg=#262626
+" Enables cursor line position tracking:
+set cursorline
+" Removes the underline causes by enabling cursorline:
+highlight clear CursorLine
+" Sets the line numbering to red background:
+" highlight CursorLineNR ctermbg=red    
+
+
+" Configs:
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" Hotkeys:
+" like <leader>w saves the current file
+let mapleader = ","
+
+" Global_props:
+" Used for command line completion
+set wildmenu
+set encoding=utf-8 " UTF-8 support
+"set clipboard=unnamed " System Clipboard
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" Tabs: Text, tab and indent related
+set shiftwidth=2
+set tabstop=2
+" Use spaces instead of tabs
+set expandtab
+" Be smart when using tabs ;)
+set smarttab
+
+" Linebreak: on 500 characters
+set lbr
+set tw=500
+
+" Indent:
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+
+" Visual_mode:
+" Visual mode pressing * or # searches for the current selection
+vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+
+
+" Search:
+" Ignore case when searching
+set ignorecase
+" When searching try to be smart about cases 
+set smartcase
+" Highlight search results
+set hlsearch
+" Makes search act like search in modern browsers
+set incsearch 
+" Don't redraw while executing macros (good performance config)
+set lazyredraw 
+" For regular expressions turn magic on
+set magic
+" Show matching brackets when text indicator is over them
+set showmatch 
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+
+" Code:
+" Folding:
+set foldmethod=indent
+set foldlevel=99
+" Folding_with_the_spacebar:
+nnoremap <space> za
+" See_the_docstrings_for_folded_code:
+let g:SimpylFold_docstring_preview=1 
+
+" Autocomplete_options:
+" Python:
+let python_highlight_all=1
+au FileType python set tabstop=4
+
+" Front:
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
+
+" Navigation:
+" NERDTree:
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" map <C-n> :NERDTreeToggle<CR>
+" let g:NERDTreeDirArrowExpandable = '▸'
+" let g:NERDTreeDirArrowCollapsible = '▾'
+
+
+" Vundle_plugins:
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin() 
+" Custom paths for Vundle plugins: call vundle#begin('~/some/path/here')
+Plugin 'VundleVim/Vundle.vim'
+
+"  Code:
+" Autocomplition_bundle: uses macvim
+Plugin 'valloric/youcompleteme'
+" Folding: fold functions
+Plugin 'tmhedberg/SimpylFold' 
+" Python: plugins
+Plugin 'vim-scripts/indentpython.vim' " Python indents
+Plugin 'vim-syntastic/syntastic' " Python syntax
+Plugin 'nvie/vim-flake8' " PEP 8 checking 
+
+" Visual:
+" Statusline:
+Plugin 'vim-airline/vim-airline'
+" Colors:
+Plugin 'altercation/vim-colors-solarized'
+" Comfortable_motion:
+Plugin 'yuttie/comfortable-motion.vim'
+
+" Navigation:
+" NERDTree: 
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'jistr/vim-nerdtree-tabs'
+
+" Git:
+" Git_Wrapper:
+Plugin 'tpope/vim-fugitive'
+" Shows_git_diff: in the 'gutter' (sign column)
+Plugin 'airblade/vim-gitgutter'
+
+call vundle#end()
+
+" Visual:
+" Comfortable_motion:
+let g:comfortable_motion_scroll_down_key = "j"
+let g:comfortable_motion_scroll_up_key = "k"
+let g:comfortable_motion_friction = 80.0
+let g:comfortable_motion_air_drag = 2.0
+
+
+filetype plugin on    " To ignore plugin indent changes, instead use: filetype plugin on
