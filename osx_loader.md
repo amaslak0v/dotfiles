@@ -4,11 +4,12 @@ Apps:
 --
 Iterm2
 BTT +[settings]
-Omnigrafle +[settings]
+*omnigrafle +[settings]
 Docker
 Chrome
 TextMate
 VirtualBox
+Atom
 
 -
 MicrosoftPack
@@ -19,13 +20,23 @@ Tools:
 --
 Brew 
 git
+
 vim
+vimplugins
+vim-colors
+
 zsh
+zsh-autosuggestions
+zsh-highlight
+
+rmtrash
+
 
 Dotfiles:
 --
 vimrc
 zshrc
 bashrc
+
 
 

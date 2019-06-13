@@ -1,6 +1,4 @@
 #TODO copy configs:
-# vimrc
-# zshrc
 # Iterm2
 # BTT
 # omnigraffle stencils
@@ -18,7 +16,10 @@ save:
 
 	cat ~/.vimrc > $(CONF_DIR)/vimrc;
 	cat ~/.zshrc > $(CONF_DIR)/zshrc;
-	
-  #mkdir $(CONF_DIR)/Stencils;
-	#cp -a /Users/amaslakov/Library/Containers/com.omnigroup.OmniGraffle7/Data/Library/Application Support/The Omni Group/OmniGraffle/Stencils/. > $(CONF_DIR)/Stencils/;
 
+.PHONY: update-all
+update-all:
+	cat $(CONF_DIR)/zshrc > ~/.zshrc;
+	cat $(CONF_DIR)/vimrc > ~/.vimrc;
+
+	
