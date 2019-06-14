@@ -38,5 +38,10 @@ vimrc
 zshrc
 bashrc
 
+SettingOSX:
+Key Repeat + Boost
+
+
+
 
 

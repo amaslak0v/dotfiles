@@ -55,33 +55,9 @@ alias rm='rmtrash'
 alias rand='cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n'
 #alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport'
 
-# === | INFO-BLOX k8 Clusters | ===
-alias Tunnel3='ssh -L 8141:localhost:8080 172.16.3.171'
-k8srmt3=http://0.0.0.0:8141
-alias k8s3="kubectl -s $k8srmt3"
-
-
 #========Exports=========
 #
 export MANPATH="/usr/local/man:$MANPATH"
 
-#Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-#JAVA
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"
-
-# Gettext
-export PATH="/usr/local/opt/gettext/bin:$PATH"
-
-# GCloud SDK
-export PATH=$PATH:/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
-
-# GNU
-export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-
-export PATH="/Users/amaslakov/Library/Python/3.7/lib/python/site-packages:$PATH"
-export PATH="/usr/local/lib/python3.7/site-packages:$PATH"
-export PATH="/usr/local/sbin:$PATH"

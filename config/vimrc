@@ -30,6 +30,8 @@ set autoread
 " Hotkeys:
 " like <leader>w saves the current file
 let mapleader = ","
+" insert selection into clipboard
+" noremap <Leader>y "+y
 
 " Global_props:
 " Used for command line completion
@@ -127,6 +129,8 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim' " Python indents
 Plugin 'vim-syntastic/syntastic' " Python syntax
 Plugin 'nvie/vim-flake8' " PEP 8 checking 
+" Jenkinsfile: 
+Plugin 'Jenkinsfile-vim-syntax'
 
 " Visual:
 " Statusline:
@@ -146,6 +150,7 @@ Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'tpope/vim-fugitive'
 " Shows_git_diff: in the 'gutter' (sign column)
 Plugin 'airblade/vim-gitgutter'
+
 
 call vundle#end()
 
