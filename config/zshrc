@@ -18,16 +18,8 @@ zsh-syntax-highlighting
 )
 
 
-#SPACESHIP_VI_MODE_COLOR=949494
-
-#Seperate history for sessions
-#setopt APPEND_HISTORY #SHARED history!!
-#setopt INC_APPEND_HISTORY
-#searching in history will skip duplicate entries
-setopt HIST_FIND_NO_DUPS
-setopt HIST_IGNORE_DUPS
-
 # NO FUCKING SHARING HISTORY!!!!!!!!!!!!!
+unsetopt inc_append_history
 unsetopt share_history
 
 #Alert if bg jobs running
@@ -40,6 +32,7 @@ source $ZSH/oh-my-zsh.sh
 #=========CUSTOM_FUNCTIONS========
 
 # === | ALIAS | ===
+
 alias zshrc="vim ~/.zshrc"
 alias szshrc='source ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
@@ -53,11 +46,19 @@ alias weather='curl wttr.in/Minsk'
 alias subl='open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias rm='rmtrash' 
 alias rand='cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n'
+alias sshconf='vim ~/.ssh/config'
+alias tmuxrc='vim ~/.tmux.conf'
 #alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport'
 
 #========Exports=========
 #
 export MANPATH="/usr/local/man:$MANPATH"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home"
+export JRE_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre"
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
+export PATH=$PATH:$GOPATH/bin
+
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
