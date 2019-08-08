@@ -141,7 +141,8 @@ Plugin 'tpope/vim-surround'
 " Statusline:
 Plugin 'vim-airline/vim-airline'
 " Colors:
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'altercation/vim-colors-solarized'
+Plugin 'sainnhe/edge'
 "" Comfortable_motion:
 "Plugin 'yuttie/comfortable-motion.vim'
 "MDViewer: Preview .md files
@@ -190,7 +191,8 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set tabstop=2
     \ set softtabstop=2
     \ set shiftwidth=2
-
+" JenkinsFile:
+au BufNewFile,BufRead Jenkinsfile setf groovy
 
 
 " Visual:

@@ -17,5 +17,3 @@ update-all:
 	cat $(CONF_DIR)/zshrc > ~/.zshrc;
 	cat $(CONF_DIR)/vimrc > ~/.vimrc;
 	cat $(CONF_DIR)/tmux.conf > ~/.tmux.conf;
-
-	
