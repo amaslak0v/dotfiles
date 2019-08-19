@@ -6,14 +6,14 @@
 CONF_DIR:=configs
 
 .PHONY: save-dotfiles
-save:
+save-dotfiles:
 	@echo "Updating configs"
 	cat ~/.vimrc > $(CONF_DIR)/dotfiles/vimrc;
 	cat ~/.zshrc > $(CONF_DIR)/dotfiles/zshrc;
 	cat ~/.tmux.conf> $(CONF_DIR)/dotfiles/tmux.conf;
 
-.PHONY: update-dotfiles
-update-dotfiles:
+.PHONY: update-local-dotfiles
+update-local-dotfiles:
 	cat $(CONF_DIR)/dotfiles/zshrc > ~/.zshrc;
 	cat $(CONF_DIR)/dotfiles/vimrc > ~/.vimrc;
 	cat $(CONF_DIR)/dotfiles/tmux.conf > ~/.tmux.conf;

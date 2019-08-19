@@ -132,7 +132,7 @@ Plugin 'tpope/vim-endwise'
 " Languages:
 " Python: plugins
 Plugin 'vim-scripts/indentpython.vim' " Python indents
-Plugin 'vim-syntastic/syntastic' " Python syntax
+" Plugin 'vim-syntastic/syntastic' " Python syntax
 " Plugin 'nvie/vim-flake8' " PEP 8 checking 
 " Surround
 Plugin 'tpope/vim-surround'
