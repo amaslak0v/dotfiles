@@ -1,0 +1,29 @@
+---
+- block:
+
+#echo "=> Installing vundlevim and plugins"
+#cp /Share/.vimrc ~/.vimrc
+#mkdir ~/.vim/colors
+#git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+#wget https://github.com/w0ng/vim-hybrid/blob/master/colors/hybrid.vim
+#mv hybrid.vim ~/.vim/colors
+#vim +PluginInstall +qall
+
+  - name: Copy vimrc
+    copy: 
+      src: "{{ dotfiles }}/vimrc" 
+      dest: ~/.vimrc
+
+  - name: Install vundle 
+    git: 
+      repo: https://github.com/gmarik/Vundle.vim.git 
+      dest: ~/.vim/bundle/Vundle.vim
+
+  - name: Install colors
+    get_url: 
+      url: https://github.com/w0ng/vim-hybrid/blob/master/colors/hybrid.vim
+      dest: ~/.vim/colors 
+
+  - name: vundle plugins
+    shell: vim +PluginInstall +qall
+

@@ -1,0 +1,2 @@
+installer_dir: /tmp/installer
+dotfiles: ../../../../configs/dotfiles

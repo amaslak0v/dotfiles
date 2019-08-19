@@ -3,17 +3,22 @@
 # BTT
 # omnigraffle stencils
 
-CONF_DIR:=config
+CONF_DIR:=configs
 
-.PHONY: save
+.PHONY: save-dotfiles
 save:
 	@echo "Updating configs"
-	cat ~/.vimrc > $(CONF_DIR)/vimrc;
-	cat ~/.zshrc > $(CONF_DIR)/zshrc;
-	cat ~/.tmux.conf> $(CONF_DIR)/tmux.conf;
+	cat ~/.vimrc > $(CONF_DIR)/dotfiles/vimrc;
+	cat ~/.zshrc > $(CONF_DIR)/dotfiles/zshrc;
+	cat ~/.tmux.conf> $(CONF_DIR)/dotfiles/tmux.conf;
 
-.PHONY: update-all
-update-all:
-	cat $(CONF_DIR)/zshrc > ~/.zshrc;
-	cat $(CONF_DIR)/vimrc > ~/.vimrc;
-	cat $(CONF_DIR)/tmux.conf > ~/.tmux.conf;
+.PHONY: update-dotfiles
+update-dotfiles:
+	cat $(CONF_DIR)/dotfiles/zshrc > ~/.zshrc;
+	cat $(CONF_DIR)/dotfiles/vimrc > ~/.vimrc;
+	cat $(CONF_DIR)/dotfiles/tmux.conf > ~/.tmux.conf;
+
+.PHONY: install-dotfiles
+install-dotfiles:
+# params vagrant@1.1.1.1 	
+	ansible-playbook -i ${ANSIBLE_HOST}, installer/dotfiles.yml -u root -k

@@ -1,0 +1,6 @@
+---
+- name: Installer
+  hosts: all
+  roles:
+    - role: dotfiles
+
