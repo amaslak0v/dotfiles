@@ -1,5 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+# ssh vagrant@192.168.10.10 -o StrictHostKeyChecking=no
 
 Vagrant.configure("2") do |config|
     config.vm.box = "Centos/7"
@@ -24,5 +25,8 @@ Vagrant.configure("2") do |config|
     end
 
     #config.vm.provision "shell", path: "../provisioning/vagrant-boot.sh"
+    config.vm.provision "ansible" do |ansible|
+      ansible.playbook = "../../installer/dotfiles.yml"
+    end
     
 end
