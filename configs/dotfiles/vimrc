@@ -2,11 +2,13 @@ set nocompatible
 
 " View:
 " Colorscheme:
-syntax enable
-set background=dark
+syntax on
+colorscheme gruvbox
+"set termguicolors
+"set background=dark
 let g:solarized_termcolors=256
 set t_Co=256 " 256 colors in terminal
-colorscheme hybrid
+"colorscheme hybrid
 
 " Numbers:
 " Set line numbers
@@ -19,8 +21,6 @@ hi ColorColumn cterm=NONE ctermbg=235 guibg=#262626
 set cursorline
 " Removes the underline causes by enabling cursorline:
 highlight clear CursorLine
-" Sets the line numbering to red background:
-" highlight CursorLineNR ctermbg=red    
 
 
 " Configs:
@@ -36,14 +36,22 @@ noremap <Leader>p "*p
 noremap <Leader>Y "+y
 noremap <Leader>P "+p
 
-  " Windows: 
+" Windows: 
 " Change ctl + W on TAB
 map <Tab> <C-W>w
-"instead of ctrl-w then j, it’s just ctrl-j:
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" Move between panes by SHIFT 
+nnoremap <S-J> <C-W><C-J>
+nnoremap <S-K> <C-W><C-K>
+nnoremap <S-L> <C-W><C-L>
+nnoremap <S-H> <C-W><C-H>
+" Map window size changes
+"nnoremap <C-+> <C-
+
+" Navigation:
+" Scroll/view text by CTRL 
+nnoremap <C-j> <C-d>
+nnoremap <C-k> <C-u>
+
 
 " Open new split panes to right and bottom, which feels more natural than Vim’s default
 set splitbelow
@@ -52,6 +60,8 @@ set splitright
 
 
 " Global_props:
+" No_swap:
+set noswapfile
 " Used for command line completion
 set wildmenu
 set encoding=utf-8 " UTF-8 support
@@ -138,6 +148,8 @@ Plugin 'vim-scripts/indentpython.vim' " Python indents
 Plugin 'tpope/vim-surround'
 
 " Visual:
+" Themes:
+Plugin 'morhetz/gruvbox'
 " Statusline:
 Plugin 'vim-airline/vim-airline'
 " Colors:
