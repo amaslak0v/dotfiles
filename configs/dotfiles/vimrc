@@ -1,40 +1,40 @@
-  set nocompatible
+set nocompatible
 
-  " View:
-  " Colorscheme:
-  syntax enable
-  set background=dark
-  let g:solarized_termcolors=256
-  set t_Co=256 " 256 colors in terminal
-  colorscheme hybrid
+" View:
+" Colorscheme:
+syntax enable
+set background=dark
+let g:solarized_termcolors=256
+set t_Co=256 " 256 colors in terminal
+colorscheme hybrid
 
-  " Numbers:
-  " Set line numbers
-  set nu
-  " Set cursorline background color
-  hi CursorLine cterm=NONE ctermbg=235 guibg=#262626
-  " Set overlenght limits highlight
-  hi ColorColumn cterm=NONE ctermbg=235 guibg=#262626
-  " Enables cursor line position tracking:
-  set cursorline
-  " Removes the underline causes by enabling cursorline:
-  highlight clear CursorLine
-  " Sets the line numbering to red background:
-  " highlight CursorLineNR ctermbg=red    
+" Numbers:
+" Set line numbers
+set nu
+" Set cursorline background color
+hi CursorLine cterm=NONE ctermbg=235 guibg=#262626
+" Set overlenght limits highlight
+hi ColorColumn cterm=NONE ctermbg=235 guibg=#262626
+" Enables cursor line position tracking:
+set cursorline
+" Removes the underline causes by enabling cursorline:
+highlight clear CursorLine
+" Sets the line numbering to red background:
+" highlight CursorLineNR ctermbg=red    
 
 
-  " Configs:
-  " Set to auto read when a file is changed from the outside
-  set autoread
+" Configs:
+" Set to auto read when a file is changed from the outside
+set autoread
 
-  " Hotkeys:
-  " like <leader>w saves the current file
-  let mapleader = ","
-  " Copy selection into clipboard
-  noremap <Leader>y "*y
-  noremap <Leader>p "*p
-  noremap <Leader>Y "+y
-  noremap <Leader>P "+p
+" Hotkeys:
+" like <leader>w saves the current file
+let mapleader = ","
+" Copy selection into clipboard
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
 
   " Windows: 
 " Change ctl + W on TAB
@@ -192,7 +192,7 @@ au BufNewFile,BufRead *.js, *.html, *.css
     \ set softtabstop=2
     \ set shiftwidth=2
 " JenkinsFile:
-au BufNewFile,BufRead Jenkinsfile setf groovy
+au BufNewFile,BufRead *jenkinsfile* setf groovy
 
 
 " Visual:
@@ -204,9 +204,9 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 
 " Code:
 " Syntastic:
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
