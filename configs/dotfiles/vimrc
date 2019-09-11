@@ -3,12 +3,15 @@ set nocompatible
 " View:
 " Colorscheme:
 syntax on
+set bg=dark
+"let g:solarized_termcolors=256
+"set t_Co=256 " 256 colors in terminal
+
+" Plugin:
 colorscheme gruvbox
-"set termguicolors
-"set background=dark
-let g:solarized_termcolors=256
-set t_Co=256 " 256 colors in terminal
-"colorscheme hybrid
+"let g:gruvbox_(option) = '(value)'
+let g:gruvbox_invert_selection = '0'
+hi normal ctermbg=235
 
 " Numbers:
 " Set line numbers
@@ -127,13 +130,14 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'nathanaelkane/vim-indent-guides'
 " NerdCommenter: comment multiple lines
 Plugin 'scrooloose/nerdcommenter'
+" Linter: formatter https://github.com/prettier/vim-prettier
+Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 "  Complition:
 " Autocomplition_bundle: uses macvim
 Plugin 'valloric/youcompleteme'
 " BracketCloser: Automatic closing of quotes, parenthesis, brackets
 Plugin 'raimondi/delimitmate'
-" Plugin 'msanders/snipmate.vim'
 " SetPaste: auto-incertion
 Plugin 'roxma/vim-paste-easy'
 " EndWise: Adding wisely add end" in ruby, endfunction/endif/more in vim script, etc
@@ -151,7 +155,8 @@ Plugin 'tpope/vim-surround'
 " Themes:
 Plugin 'morhetz/gruvbox'
 " Statusline:
-Plugin 'vim-airline/vim-airline'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " Colors:
 "Plugin 'altercation/vim-colors-solarized'
 Plugin 'sainnhe/edge'
@@ -208,6 +213,12 @@ au BufNewFile,BufRead *jenkinsfile* setf groovy
 
 
 " Visual:
+" Status_airline:
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
 "" Comfortable_motion:
 "let g:comfortable_motion_scroll_down_key = "j"
 "let g:comfortable_motion_scroll_up_key = "k"
@@ -215,47 +226,21 @@ au BufNewFile,BufRead *jenkinsfile* setf groovy
 "let g:comfortable_motion_air_drag = 2.0
 
 " Code:
-" Syntastic:
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
+" Indent_guides:
+"let g:indent_guides_enable_on_vim_startup = 1
 " Navigation:
-"" Fuzzy_file:
-" When invoked, unless a starting directory is specified, CtrlP will set its local working directory according to this variable:
-"let g:ctrlp_working_path_mode = 'ra'
-"" Exclude files and directories using Vim's wildignore and CtrlP's own g:ctrlp_custom_ignore
-"set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-"let g:ctrlp_custom_ignore = {
-  "\ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  "\ 'file': '\v\.(exe|so|dll)$',
-  "\ 'link': 'some_bad_symbolic_links',
-  "\ }
-"" Use a custom file listing command:
-"let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
-
 " NERDTree: 
 " Map a specific key or shortcut to open NERDTree
 map <C-n> :NERDTreeToggle<CR>
-
 " How can I open NERDTree automatically when vim starts up on opening a directory?
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-
 " How can I open a NERDTree automatically when vim starts up if no files were specified?
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 " Change default arrows
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-
 " Close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -263,8 +248,5 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "" Disable dafault key mapping
 "let g:ranger_map_keys = 0
 "map <C-n> :Ranger<CR>
-
-
-
 
 filetype plugin on    " To ignore plugin indent changes, instead use: filetype plugin on
