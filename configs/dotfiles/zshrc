@@ -48,7 +48,7 @@ alias rm='rmtrash'
 alias rand='cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n'
 alias sshconf='vim ~/.ssh/config'
 alias tmuxrc='vim ~/.tmux.conf'
-#alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport'
+alias ip='curl ifconfig.co'
 
 #========Exports=========
 #
