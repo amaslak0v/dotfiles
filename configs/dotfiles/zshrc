@@ -9,15 +9,20 @@ LS_COLORS=$LS_COLORS:'di=1;35:' ; export LS_COLORS
 
 #==========| ZSH SETTINGS |=============
 plugins=(
-vi-mode
-osx
-git
-docker
-zsh-autosuggestions
-zsh-syntax-highlighting
+  vi-mode
+  osx
+  git
+  docker
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
+# Prompt setup
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_CHAR_SYMBOL="❯"
+SPACESHIP_CHAR_SUFFIX=" "
 
+#todo
 # NO FUCKING SHARING HISTORY!!!!!!!!!!!!!
 unsetopt inc_append_history
 unsetopt share_history
