@@ -1,215 +1,427 @@
+filetype plugin on    " To ignore plugin indent changes, instead use: filetype plugin on
+" Tutorials:
+"   https://www.youtube.com/watch?v=wlR5gYd6um0&t=1871s
+" Plugins:
+"   https://github.com/svermeulen/vim-easyclip
+
 set nocompatible
 
-" View:
+" Move coursor by click
+" set mouse=a
+
+" Shared clipboard for all
+set clipboard=unnamed
+set spelllang=en_us
+
+""" View:
+
 " Colorscheme:
 syntax on
-set bg=dark
-"let g:solarized_termcolors=256
-"set t_Co=256 " 256 colors in terminal
-
-" Plugin:
+set background=dark
 colorscheme gruvbox
-"let g:gruvbox_(option) = '(value)'
 let g:gruvbox_invert_selection = '0'
-hi normal ctermbg=235
+" let g:gruvbox_contrast_light = 'soft'
+" let g:gruvbox_contrast_dark = 'soft'
 
 " Numbers:
-" Set line numbers
-set nu
-" Set cursorline background color
-hi CursorLine cterm=NONE ctermbg=235 guibg=#262626
-" Set overlenght limits highlight
-hi ColorColumn cterm=NONE ctermbg=235 guibg=#262626
-" Enables cursor line position tracking:
-set cursorline
-" Removes the underline causes by enabling cursorline:
-highlight clear CursorLine
-
-
-" Configs:
-" Set to auto read when a file is changed from the outside
-set autoread
-
-" Hotkeys:
-" like <leader>w saves the current file
-let mapleader = ","
-" Copy selection into clipboard
-noremap <Leader>y "*y
-noremap <Leader>p "*p
-noremap <Leader>Y "+y
-noremap <Leader>P "+p
-
-" Windows: 
-" Change ctl + W on TAB
-map <Tab> <C-W>w
-" Move between panes by SHIFT 
-nnoremap <S-J> <C-W><C-J>
-nnoremap <S-K> <C-W><C-K>
-nnoremap <S-L> <C-W><C-L>
-nnoremap <S-H> <C-W><C-H>
-" Map window size changes
-"nnoremap <C-+> <C-
-
-" Navigation:
-" Scroll/view text by CTRL 
-nnoremap <C-j> <C-d>
-nnoremap <C-k> <C-u>
-
+set nu " Set line numbers
+hi CursorLine cterm=NONE ctermbg=235 guibg=#262626  " Set cursorline background color
+hi ColorColumn cterm=NONE ctermbg=235 guibg=#262626 " Set overlenght limits highlight
+set cursorline                                      " Enables cursor line position tracking:
+highlight clear CursorLine                          " Removes the underline causes by enabling cursorline:
+set wrap                                            " Lines longer than the width of the window will wrap and displaying continues on the next line
 
 " Open new split panes to right and bottom, which feels more natural than Vim’s default
 set splitbelow
 set splitright
 
 
+""" Configs:
+" Hotkeys
+let mapleader = ","
 
-" Global_props:
-" No_swap:
-set noswapfile
-" Used for command line completion
-set wildmenu
-set encoding=utf-8 " UTF-8 support
-"set clipboard=unnamed " System Clipboard
+set autoread " Set to auto read when a file is changed from the outside
+autocmd! bufwritepost .vimrc source % " Automatic reloading of .vimrc 
+
+" Performance: 
+let g:loaded_matchparen=1 " disable auto matching parens
+set nolist " don't render special chars (tabs, trails, ...)
+set ttyfast
+
+""" Netrw
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+    
+"""  Globalprops
+set noswapfile " disable swap file
+set wildmenu " Used for command line completion
+set encoding=UTF-8 " UTF-8 support
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
 " Tabs: Text, tab and indent related
-set shiftwidth=2
-set tabstop=2
-" Use spaces instead of tabs
-set expandtab
-" Be smart when using tabs ;)
-set smarttab
-
-" Linebreak: on 500 characters
-set lbr
-set tw=500
+set shiftwidth=4
+set tabstop=4
+set expandtab " Use spaces instead of tabs
+set smarttab " Be smart when using tabs ;)
+set shiftwidth=4 
+set shiftround 
 
 " Indent:
 set ai "Auto indent
 set si "Smart indent
-set wrap "Wrap lines
 
-" Visual_mode:
+" Insertion
+set textwidth=500 " Maximum width of text that is being inserted.
+
+
+
+
+""" Visual_mode:
+
 " Select without last character (under the cursor)
 set selection=exclusive
+
 " Visual mode pressing * or # searches for the current selection
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
+" Selection don't drop after text moving by < >
+" vnoremap < <gv  
+" vnoremap > >gv  
 
-" Search:
-" Ignore case when searching
-set ignorecase
-" When searching try to be smart about cases 
-set smartcase
-" Highlight search results
-set hlsearch
-" Makes search act like search in modern browsers
-set incsearch 
-" Don't redraw while executing macros (good performance config)
-set lazyredraw 
-" For regular expressions turn magic on
-set magic
-" Show matching brackets when text indicator is over them
-set showmatch 
-" How many tenths of a second to blink when matching brackets
-set mat=2
 
-" Vundle_plugins:
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin() 
-" Custom paths for Vundle plugins: call vundle#begin('~/some/path/here')
-Plugin 'VundleVim/Vundle.vim'
+
+""" Search:
+set ignorecase " Ignore case when searching
+set smartcase  " When searching try to be smart about cases 
+set hlsearch   " Highlight search results
+set incsearch  " Makes search act like search in modern browsers
+set lazyredraw " Don't redraw while executing macros (good performance config)
+set magic      " For regular expressions turn magic on
+set showmatch  " Show matching brackets when text indicator is over them
+set mat=2      " How many tenths of a second to blink when matching brackets
+
+
+
+
+
+call plug#begin('~/.vim/plugged')
 
 "  Code:
 " Folding: fold functions
-Plugin 'tmhedberg/SimpylFold' 
+Plug 'tmhedberg/SimpylFold' 
 " IndentLevels: 
-Plugin 'nathanaelkane/vim-indent-guides'
-" NerdCommenter: comment multiple lines
-Plugin 'scrooloose/nerdcommenter'
+Plug 'nathanaelkane/vim-indent-guides'
 " Linter: formatter https://github.com/prettier/vim-prettier
-Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" YamlFormatter: 
+Plug 'tarekbecker/vim-yaml-formatter'
 
-"  Complition:
-" Autocomplition_bundle: uses macvim
-Plugin 'valloric/youcompleteme'
-" BracketCloser: Automatic closing of quotes, parenthesis, brackets
-Plugin 'raimondi/delimitmate'
+
+"""  Complition:
+
+" Use release branch (Recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gr <Plug>(coc-referencies)
+
+" TextEdit might fail if hidden is not set.
+set hidden
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Applying codeAction to the selected region.
+" Example: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of LS, ex: coc-tsserver
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Mappings using CoCList:
+" Show all diagnostics.
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions.
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands.
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document.
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list.
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+
+
+" TODO:  Close HTML tags
+" https://github.com/alvan/vim-closetag
+Plug 'alvan/vim-closetag'
+
 " SetPaste: auto-incertion
-Plugin 'roxma/vim-paste-easy'
-" EndWise: Adding wisely add end" in ruby, endfunction/endif/more in vim script, etc
-Plugin 'tpope/vim-endwise'
+Plug 'roxma/vim-paste-easy'
+
+" Make it so that a curly brace automatically inserts an indented line
+Plug 'jiangmiao/auto-pairs'
+
+" cs'" changes quotes
+" ysiw" add quotes
+" wrap the entire line in parentheses with yssb or yss)
+" Visual wrapping: S + anyBracket
+Plug 'tpope/vim-surround'
+
+" Enables support of '.' repition for plugins
+Plug 'tpope/vim-repeat'
+
+" Comments
+Plug 'tpope/vim-commentary'
+
+" Inner indent as object. Comment inner indent by gcii
+Plug 'michaeljsmith/vim-indent-object'
+
+" Sort by alfabet: gsip
+Plug 'christoomey/vim-sort-motion'
+
+
+" Align text: https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+" For:
+"   a   : aaa
+"   bbb : b
+" Use: V ga ->(key to right) :
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 
 " Languages:
-" Python: plugins
-Plugin 'vim-scripts/indentpython.vim' " Python indents
-" Plugin 'vim-syntastic/syntastic' " Python syntax
-" Plugin 'nvie/vim-flake8' " PEP 8 checking 
-" Surround
-Plugin 'tpope/vim-surround'
+" Python: 
+Plug 'vim-scripts/indentpython.vim' " Python indents
+" Ansible: https://github.com/pearofducks/ansible-vim
+Plug 'pearofducks/ansible-vim'
 
-" Visual:
+
+""" Visual:
 " Themes:
-Plugin 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
+Plug 'franbach/miramare'
+" Icons:
+"Plug 'ryanoasis/vim-devicons'
 " Statusline:
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " Colors:
-"Plugin 'altercation/vim-colors-solarized'
-Plugin 'sainnhe/edge'
+"Plug 'altercation/vim-colors-solarized'
+Plug 'sainnhe/edge'
 "" Comfortable_motion:
-"Plugin 'yuttie/comfortable-motion.vim'
+"Plug 'yuttie/comfortable-motion.vim'
 "MDViewer: Preview .md files
-Plugin 'JamshedVesuna/vim-markdown-preview'
+Plug 'JamshedVesuna/vim-markdown-preview'
 " grip dependency for .md view
 let vim_markdown_preview_github=1
 
-" Navigation:
+"" Hilights a pair of parens/braces that surround the cursor
+Plug 'djdt/pyparens.nvim'
+
+""" Navigation:
 " NERDTree: 
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs' "tabs
-Plugin 'xuyuanp/nerdtree-git-plugin' "git
-" Fuzzy_file:
-" Plugin 'kien/ctrlp.vim'
-" Ranger:
-" Plugin 'francoiscabrol/ranger.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs' "tabs
+Plug 'xuyuanp/nerdtree-git-plugin' "git
+" Map a specific key or shortcut to open NERDTree
+map <C-n> :NERDTreeToggle<CR>
+" How can I open NERDTree automatically when vim starts up on opening a directory?
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" How can I open a NERDTree automatically when vim starts up if no files were specified?
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Change default arrows
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+" Close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
+" FZF:
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+
 " Tmux:
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'christoomey/vim-tmux-navigator'
+" Tagbar:
+Plug 'majutsushi/tagbar'
+" Marks:
+Plug 'kshenoy/vim-signature'
 
 " Git:
 " Git_Wrapper:
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " Shows_git_diff: in the 'gutter' (sign column)
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
-call vundle#end()
+" VimWiki:
+Plug 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path': '~/wiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
+call plug#end()
 
 
 
-" Code:
+""" Code:
+
 " Folding:
 set foldmethod=indent
 set foldlevel=99
+
 " Folding_with_the_spacebar:
 nnoremap <space> za
+
 " See_the_docstrings_for_folded_code:
 let g:SimpylFold_docstring_preview=1 
 
-" Autocomplete_options:
+
+
+""" Autocomplete_options:
+
 " Python:
 let python_highlight_all=1
 au FileType python set tabstop=4
 
+" Ansible: https://github.com/pearofducks/ansible-vim
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+au FileType yaml.ansible setlocal sw=2 ts=2 sts=2
+
 " Front:
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
+"au BufNewFile,BufRead *.js,*.html,*.css
+    "
 " JenkinsFile:
 au BufNewFile,BufRead *jenkinsfile* setf groovy
+au FileType groovy setlocal sw=4 ts=4 sts=4
+
 
 
 " Visual:
@@ -219,34 +431,15 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-"" Comfortable_motion:
-"let g:comfortable_motion_scroll_down_key = "j"
-"let g:comfortable_motion_scroll_up_key = "k"
-"let g:comfortable_motion_friction = 80.0
-"let g:comfortable_motion_air_drag = 2.0
 
-" Code:
-" Indent_guides:
-"let g:indent_guides_enable_on_vim_startup = 1
-" Navigation:
-" NERDTree: 
-" Map a specific key or shortcut to open NERDTree
-map <C-n> :NERDTreeToggle<CR>
-" How can I open NERDTree automatically when vim starts up on opening a directory?
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-" How can I open a NERDTree automatically when vim starts up if no files were specified?
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" Change default arrows
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-" Close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-"" Ranger:
-"" Disable dafault key mapping
-"let g:ranger_map_keys = 0
-"map <C-n> :Ranger<CR>
+""" Navigation:
+
+
+
+" Tagbar:
+map <C-t> :TagbarToggle<CR>
+
+
 
 filetype plugin on    " To ignore plugin indent changes, instead use: filetype plugin on
