@@ -1,0 +1,34 @@
+---
+- block:
+  - name: install vim
+    package:
+      name: vim
+      state: present
+    become: yes
+
+  - name: install git
+    package:
+      name: git
+      state: present
+    become: yes
+
+  - name: install make
+    package:
+      name: make
+      state: present
+    become: yes
+
+  - git: 
+      repo: https://github.com/hut/ranger.git
+      dest: "{{ installer_dir }}/ranger"
+
+  #- name: Build ranger
+    #make:
+      #chdir: "{{ installer_dir }}/ranger"
+      #target: install
+    #become: yes
+
+  - name: centos install
+    shell: env PREFIX=/usr make install 
+    args:
+      chdir: "{{ installer_dir }}/ranger"

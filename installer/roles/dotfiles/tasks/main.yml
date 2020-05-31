@@ -1,0 +1,13 @@
+---
+
+#- include_tasks: install.yml
+  #tags:
+    #- install
+
+- include_tasks: ranger.yml
+  tags:
+    - ranger
+
+#- include_tasks: vim.yml
+  #tags:
+    #- vim

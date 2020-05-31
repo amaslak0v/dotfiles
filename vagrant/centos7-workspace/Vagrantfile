@@ -1,0 +1,35 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+Vagrant.configure("2") do |config|
+    config.vm.box = "Centos/7"
+    config.vm.hostname = "workspace"
+
+    # Network
+    config.vm.network:private_network, ip: "192.168.10.11"
+    config.vm.network:forwarded_port,guest:80,host:10080,auto_correct:true
+    config.vm.network:forwarded_port,guest:8080,host:18080,auto_correct:true
+
+    config.vm.provider 'virtualvm' do |v|
+            v.memory = '2000'
+    end
+
+    # Shared folders
+    Vagrant.configure("2") do |config|
+      config.vm.synced_folder "~/Workspace", "/workspace"
+      config.vm.synced_folder "~/.", "~/."
+    end
+
+
+    config.vm.provision :copy_my_conf do |copy_conf|
+      copy_conf.git
+      copy_conf.vim
+      copy_conf.ssh
+    end
+
+    config.vm.provision "shell", path: "../provisioning/vagrant-boot.sh"
+    config.vm.provision "shell", path: "../provisioning/workspace.sh"
+    #config.vm.provision "ansible" do |ansible|
+      #ansible.playbook = "../../installer/dotfiles.yml"
+    #end
+    
+end
