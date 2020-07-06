@@ -17,11 +17,13 @@ set spelllang=en_us
 
 " Colorscheme:
 syntax on
+" if has('termguicolors')
+"   set termguicolors
+" endif
 set background=dark
+" set background=light
 colorscheme gruvbox
-let g:gruvbox_invert_selection = '0'
-" let g:gruvbox_contrast_light = 'soft'
-" let g:gruvbox_contrast_dark = 'soft'
+
 
 " Numbers:
 set nu " Set line numbers
@@ -51,9 +53,6 @@ set ttyfast
 """ Netrw
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
     
 """  Globalprops
 set noswapfile " disable swap file
@@ -79,6 +78,8 @@ set si "Smart indent
 " Insertion
 set textwidth=500 " Maximum width of text that is being inserted.
 
+" Buffers
+nnoremap <silent> <leader>b :Buffers<CR>
 
 
 
@@ -128,8 +129,6 @@ Plug 'tarekbecker/vim-yaml-formatter'
 
 " Use release branch (Recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-nmap <leader>gd <Plug>(coc-definition)
-nmap <leader>gr <Plug>(coc-referencies)
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -325,6 +324,7 @@ Plug 'pearofducks/ansible-vim'
 """ Visual:
 " Themes:
 Plug 'morhetz/gruvbox'
+" Plug 'sainnhe/gruvbox-material'
 Plug 'franbach/miramare'
 " Icons:
 "Plug 'ryanoasis/vim-devicons'
@@ -337,7 +337,7 @@ Plug 'sainnhe/edge'
 "" Comfortable_motion:
 "Plug 'yuttie/comfortable-motion.vim'
 "MDViewer: Preview .md files
-Plug 'JamshedVesuna/vim-markdown-preview'
+" Plug 'JamshedVesuna/vim-markdown-preview'
 " grip dependency for .md view
 let vim_markdown_preview_github=1
 
@@ -346,28 +346,28 @@ Plug 'djdt/pyparens.nvim'
 
 """ Navigation:
 " NERDTree: 
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs' "tabs
-Plug 'xuyuanp/nerdtree-git-plugin' "git
-" Map a specific key or shortcut to open NERDTree
-map <C-n> :NERDTreeToggle<CR>
-" How can I open NERDTree automatically when vim starts up on opening a directory?
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-" How can I open a NERDTree automatically when vim starts up if no files were specified?
+" Plug 'scrooloose/nerdtree'
+" Plug 'jistr/vim-nerdtree-tabs' "tabs
+" Plug 'xuyuanp/nerdtree-git-plugin' "git
+" " Map a specific key or shortcut to open NERDTree
+" map <C-n> :NERDTreeToggle<CR>
+" " How can I open NERDTree automatically when vim starts up on opening a directory?
 " autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" Change default arrows
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-" Close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" " How can I open a NERDTree automatically when vim starts up if no files were specified?
+" " autocmd StdinReadPre * let s:std_in=1
+" " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" " Change default arrows
+" let g:NERDTreeDirArrowExpandable = '▸'
+" let g:NERDTreeDirArrowCollapsible = '▾'
+" " Close vim if the only window left open is a NERDTree
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
 " FZF:
+" TODO: https://github.com/junegunn/fzf.vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
 
 " Tmux:
 Plug 'christoomey/vim-tmux-navigator'
