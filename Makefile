@@ -6,6 +6,7 @@ save-dotfiles:
 	cat ~/.vimrc > $(CONF_DIR)/dotfiles/vimrc;
 	cat ~/.zshrc > $(CONF_DIR)/dotfiles/zshrc;
 	cat ~/.tmux.conf> $(CONF_DIR)/dotfiles/tmux.conf;
+	cp -r ~/.config/fish $(CONF_DIR)/dotfiles/fish;
 
 .PHONY: update-local-dotfiles
 update-local-dotfiles:

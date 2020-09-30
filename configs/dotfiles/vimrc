@@ -33,6 +33,8 @@ autocmd BufEnter * :syntax sync fromstart
 
 " Numbers:
 set nu " Set line numbers
+" turn relative line numbers on
+" set relativenumber
 hi CursorLine cterm=NONE ctermbg=235 guibg=#262626  " Set cursorline background color
 hi ColorColumn cterm=NONE ctermbg=235 guibg=#262626 " Set overlenght limits highlight
 set cursorline                                      " Enables cursor line position tracking:
@@ -313,10 +315,14 @@ Plug 'tpope/vim-repeat'
 " Comments
 Plug 'tpope/vim-commentary'
 
+
+
 " Inner indent as object. Comment inner indent by gcii
 " https://github.com/michaeljsmith/vim-indent-object
 "
 Plug 'michaeljsmith/vim-indent-object'
+
+
 
 " Sort by alfabet: gsip
 " https://github.com/christoomey/vim-sort-motion
@@ -339,7 +345,6 @@ Plug 'christoomey/vim-sort-motion'
 " In addition, cP is mapped to copy the current line directly.
 " The sequence cV is mapped to paste the content of system clipboard to the next line.
 Plug 'christoomey/vim-system-copy'
-
 
 
 
@@ -394,23 +399,27 @@ let vim_markdown_preview_github=1
 Plug 'djdt/pyparens.nvim'
 
 """ Navigation:
+
+
+
 " NERDTree: 
-" Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 " Plug 'jistr/vim-nerdtree-tabs' "tabs
-" Plug 'xuyuanp/nerdtree-git-plugin' "git
-" " Map a specific key or shortcut to open NERDTree
-" map <C-n> :NERDTreeToggle<CR>
-" " How can I open NERDTree automatically when vim starts up on opening a directory?
+Plug 'xuyuanp/nerdtree-git-plugin' "git
+
+" Map a specific key or shortcut to open NERDTree
+map <C-n> :NERDTreeToggle<CR>
+" How can I open NERDTree automatically when vim starts up on opening a directory?
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" How can I open a NERDTree automatically when vim starts up if no files were specified?
 " autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-" " How can I open a NERDTree automatically when vim starts up if no files were specified?
-" " autocmd StdinReadPre * let s:std_in=1
-" " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" " Change default arrows
-" let g:NERDTreeDirArrowExpandable = '▸'
-" let g:NERDTreeDirArrowCollapsible = '▾'
-" " Close vim if the only window left open is a NERDTree
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Change default arrows
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+" Close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
 
@@ -495,6 +504,9 @@ au FileType yaml.ansible setlocal sw=2 ts=2 sts=2
 " JenkinsFile:
 au BufNewFile,BufRead *jenkinsfile* setf groovy
 au FileType groovy setlocal sw=4 ts=4 sts=4
+
+" JS
+au FileType js setlocal sw=2 ts=2 sts=2
 
 
 

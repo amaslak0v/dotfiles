@@ -19,7 +19,6 @@ Vagrant.configure("2") do |config|
       config.vm.synced_folder "~/.", "~/."
     end
 
-
     config.vm.provision :copy_my_conf do |copy_conf|
       copy_conf.git
       copy_conf.vim
