@@ -17,6 +17,7 @@ alias fishrcd='cd ~/.config/fish/'
 alias sfishrc='source ~/.config/fish/config.fish'
 
 alias vimrc='vim ~/.vimrc'
+alias vr='vim ~/.vimrc'
 alias sshconf='vim ~/.ssh/config'
 alias tmuxrc='vim ~/.tmux.conf'
 alias stmuxrc='tmux source ~/.tmux.conf'
@@ -42,6 +43,6 @@ if test -f /Users/amaslakou/.autojump/share/autojump/autojump.fish; . /Users/ama
 
 # FZF 
 # https://github.com/junegunn/fzf/blob/master/README-VIM.md
-export FZF_DEFAULT_COMMAND='fd --type file --color=always'
+export FZF_DEFAULT_COMMAND='fd --type file'
 export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border'
 bind -M insert "ç" fzf-cd-widget
