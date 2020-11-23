@@ -55,6 +55,13 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0xa7-0x0</key>
+		<dict>
+			<key>Action</key>
+			<integer>12</integer>
+			<key>Text</key>
+			<string>`</string>
+		</dict>
 		<key>0xf700-0x300000</key>
 		<dict>
 			<key>Action</key>
@@ -258,7 +265,7 @@
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>640 673 400 129 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>530 476 620 392 0 0 1680 1027 </string>
+	<string>970 768 620 392 0 0 2560 1417 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>842 1485 606 469 -479 1050 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
@@ -266,7 +273,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>70 236 592 584 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1680 1027 0 0 1680 1027 </string>
+	<string>0 0 1680 1027 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 0 1680 1027 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1954,9 +1961,9 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1680, 1050}}</string>
+		<string>{{0, 0}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{655, 846}</string>
+		<string>{269, 595}</string>
 	</dict>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
@@ -1969,7 +1976,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>584346086.043679</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>94</integer>
+	<integer>100</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2795,13 +2802,13 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-10-16T07:43:14Z</date>
+	<date>2020-11-18T14:30:35Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
-	<integer>2830808499</integer>
+	<integer>2584346312</integer>
 	<key>SUUpdateRelaunchingMarker</key>
-	<false/>
+	<true/>
 	<key>SavePasteHistory</key>
 	<true/>
 	<key>SeparateStatusBarsPerPane</key>

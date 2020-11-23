@@ -46,3 +46,6 @@ if test -f /Users/amaslakou/.autojump/share/autojump/autojump.fish; . /Users/ama
 export FZF_DEFAULT_COMMAND='fd --type file'
 export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border'
 bind -M insert "ç" fzf-cd-widget
+
+# JAVA_HOME: check wiki how to find it on OSX
+export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home'
