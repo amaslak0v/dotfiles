@@ -22,7 +22,6 @@ SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "
 
 
-#todo
 # NO FUCKING SHARING HISTORY!!!!!!!!!!!!!
 unsetopt inc_append_history
 unsetopt share_history
@@ -38,28 +37,35 @@ source $ZSH/oh-my-zsh.sh
 
 # === | ALIAS | ===
 
+
+# Dotenv aliases
 alias zshrc="vim ~/.zshrc"
 alias szshrc='source ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias svimrc='source ~/.vimrc'
 alias ohmyzsh="vim ~/.oh-my-zsh"
+alias sshconf='vim ~/.ssh/config'
+alias fishrc='vim ~/.config/fish/config.fish'
+
+# System aliases
+alias cat='bat'
+alias rm='rmtrash' 
 alias trc='tree -C'
 alias trp='tree -Cpu'
 alias trd='tree -C -d'
-alias clc='clear'
+
+#  Web tools
 alias weather='curl wttr.in/Minsk'
-alias subl='open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-alias rm='rmtrash' 
-alias rand='cat /dev/urandom | tr -dc "a-zA-Z0-9" | fold -w 32 | head -n'
-alias sshconf='vim ~/.ssh/config'
-alias tmuxrc='vim ~/.tmux.conf'
 alias ip='curl ifconfig.co'
-alias tf='terraform'
-alias ws='vim ~/Desktop/workspace.md'
 alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
 
+# Apps aliases
+alias wi='vim -c VimwikiIndex'
+alias tf='terraform'
+alias subl='open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+alias tmuxrc='vim ~/.tmux.conf'
+
 #========Exports=========
-#
 export MANPATH="/usr/local/man"
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home
 export JRE_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre"
@@ -71,15 +77,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 #export PATH=/usr/local/opt/openssl/bin:$PATH
 
-#======= lf configuration =========
-#USERPATH="/Users/amaslakou"
-#export XDG_CONFIG_HOME="$USERPATH/.config"
-#alias lfrc="vim $XDG_CONFIG_HOME/lf/lfrc"
-#LFCD="$USERPATH/.config/lf/lfcd.sh"
-#if [ -f "$LFCD" ]; then
-    #source "$LFCD"
-#fi
-#
 # ===  fzf  ===
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
