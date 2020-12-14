@@ -60,6 +60,7 @@ alias ip='curl ifconfig.co'
 alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
 
 # Apps aliases
+alias obsidan='open /Applications/Obsidian.app'
 alias wi='vim -c VimwikiIndex'
 alias tf='terraform'
 alias subl='open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'

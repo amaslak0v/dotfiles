@@ -545,7 +545,9 @@ Plug 'tpope/vim-fugitive'
 " Shows_git_diff: in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
 
-" VimWiki:
+
+" I am using Obsidan
+" VimWiki: 
 " https://github.com/vimwiki/vimwiki
 Plug 'vimwiki/vimwiki'
 " Set Main format as MD
