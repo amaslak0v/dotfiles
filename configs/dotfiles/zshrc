@@ -33,11 +33,6 @@ setopt NOTIFY
 
 source $ZSH/oh-my-zsh.sh
 
-#=========CUSTOM_FUNCTIONS========
-
-# === | ALIAS | ===
-
-
 # Dotenv aliases
 alias zshrc="vim ~/.zshrc"
 alias szshrc='source ~/.zshrc'
@@ -53,6 +48,7 @@ alias rm='rmtrash'
 alias trc='tree -C'
 alias trp='tree -Cpu'
 alias trd='tree -C -d'
+alias free_space='diskutil info / | grep "Free"'
 
 #  Web tools
 alias weather='curl wttr.in/Minsk'

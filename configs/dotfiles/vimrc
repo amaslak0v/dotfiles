@@ -48,6 +48,10 @@ set autoread
 " Automatic reloading of .vimrc 
 autocmd! bufwritepost .vimrc source % 
 
+" For local replace
+nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
+" For global replace
+nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
 
 " Performance: 
@@ -56,29 +60,29 @@ set nolist " don't render special chars (tabs, trails, ...)
 set ttyfast
 
 
-""""""""
-">> Netrw
-""""""""
-function! ToggleVExplorer()
-  if exists("t:expl_buf_num")
-      let expl_win_num = bufwinnr(t:expl_buf_num)
-      if expl_win_num != -1
-          let cur_win_nr = winnr()
-          exec expl_win_num . 'wincmd w'
-          close
-          exec cur_win_nr . 'wincmd w'
-          unlet t:expl_buf_num
-      else
-          unlet t:expl_buf_num
-      endif
-  else
-      exec '1wincmd w'
-      Vexplore
-      let t:expl_buf_num = bufnr("%")
-  endif
-endfunction
-" Toggle Vexplore with Ctrl-E
-map <silent> <C-E> :call ToggleVExplorer()<CR>
+"""""""""
+"">> Netrw
+"""""""""
+"function! ToggleVExplorer()
+"  if exists("t:expl_buf_num")
+"      let expl_win_num = bufwinnr(t:expl_buf_num)
+"      if expl_win_num != -1
+"          let cur_win_nr = winnr()
+"          exec expl_win_num . 'wincmd w'
+"          close
+"          exec cur_win_nr . 'wincmd w'
+"          unlet t:expl_buf_num
+"      else
+"          unlet t:expl_buf_num
+"      endif
+"  else
+"      exec '1wincmd w'
+"      Vexplore
+"      let t:expl_buf_num = bufnr("%")
+"  endif
+"endfunction
+"" Toggle Vexplore with Ctrl-E
+"map <silent> <C-E> :call ToggleVExplorer()<CR>
 
 
 
@@ -388,7 +392,7 @@ nmap ga <Plug>(EasyAlign)
 
 
 """"""""""
-"|> Themes 
+">> Themes 
 """"""""""
 
 """"""""""
@@ -424,6 +428,21 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'djdt/pyparens.nvim'
 """"""""""""""""""""""""""
+
+
+"> Nerdtree
+Plug 'preservim/nerdtree'
+nnoremap <C-e> :NERDTree<CR>
+
+" Automatically close NerdTree when you open a file
+let NERDTreeQuitOnOpen=1
+
+" UI
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+" default arrows
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
 
 
