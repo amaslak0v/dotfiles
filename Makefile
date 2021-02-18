@@ -3,7 +3,7 @@ CONF_DIR:=configs
 .PHONY: save-dotfiles
 save-dotfiles:
 	@echo "Updating configs"
-	cat ~/.vimrc > $(CONF_DIR)/dotfiles/vimrc;
+	cat ~/.config/nvim/init.vim > $(CONF_DIR)/dotfiles/vimrc;
 	cat ~/.zshrc > $(CONF_DIR)/dotfiles/zshrc;
 	cat ~/.tmux.conf> $(CONF_DIR)/dotfiles/tmux.conf;
 	cp -r ~/.config/fish $(CONF_DIR)/dotfiles/fish;
@@ -11,7 +11,7 @@ save-dotfiles:
 .PHONY: update-local-dotfiles
 update-local-dotfiles:
 	cat $(CONF_DIR)/dotfiles/zshrc > ~/.zshrc;
-	cat $(CONF_DIR)/dotfiles/vimrc > ~/.vimrc;
+	cat $(CONF_DIR)/dotfiles/vimrc > ~/.config/nvim/init.vim;
 	cat $(CONF_DIR)/dotfiles/tmux.conf > ~/.tmux.conf;
 
 .PHONY: install-dotfiles

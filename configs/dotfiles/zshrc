@@ -5,12 +5,14 @@ export TERM="screen-256color"
 #========| THEME SETTINGS |===========
 ZSH_THEME="spaceship"
 export LS_COLORS=$LS_COLORS:'di=1;35:' 
+COLORTERM="truecolor"
 
 #==========| ZSH SETTINGS |=============
 plugins=(
   vi-mode
   osx
   git
+  aws
   docker
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -36,8 +38,11 @@ source $ZSH/oh-my-zsh.sh
 # Dotenv aliases
 alias zshrc="vim ~/.zshrc"
 alias szshrc='source ~/.zshrc'
-alias vimrc='vim ~/.vimrc'
-alias svimrc='source ~/.vimrc'
+# alias vimrc='vim ~/.vimrc'
+# alias svimrc='source ~/.vimrc'
+alias vim='nvim'
+alias vimrc='vim ~/.config/nvim/init.vim'
+alias svimrc='source ~/.config/nvim/init.vim'
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias sshconf='vim ~/.ssh/config'
 alias fishrc='vim ~/.config/fish/config.fish'
@@ -54,13 +59,43 @@ alias free_space='diskutil info / | grep "Free"'
 alias weather='curl wttr.in/Minsk'
 alias ip='curl ifconfig.co'
 alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
+alias star_wars='telnet towel.blinkenlights.nl'
 
-# Apps aliases
+# Appsnkenlights.nl
+# aliases
 alias obsidan='open /Applications/Obsidian.app'
+alias star-wars=nkenlights.nl''
 alias wi='vim -c VimwikiIndex'
+WIKI_PATH='/Users/amaslakou/Library/Mobile\ Documents/com~apple~CloudDocs/wiki/'
+alias host-wiki="cd $WIKI_PATH && python -m SimpleHTTPServer 80"
+alias local-ip='ipconfig getifaddr en0'
 alias tf='terraform'
 alias subl='open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias tmuxrc='vim ~/.tmux.conf'
+
+#
+### FZF
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+function cd() {
+    if [[ "$#" != 0 ]]; then
+        builtin cd "$@";
+        return
+    fi
+    while true; do
+        local lsd=$(echo ".." && ls -p | grep '/$' | sed 's;/$;;')
+        local dir="$(printf '%s\n' "${lsd[@]}" |
+            fzf --reverse --preview '
+                __cd_nxt="$(echo {})";
+                __cd_path="$(echo $(pwd)/${__cd_nxt} | sed "s;//;/;")";
+                echo $__cd_path;
+                echo;
+                ls -p --color=always "${__cd_path}";
+        ')"
+        [[ ${#dir} != 0 ]] || return 0
+        builtin cd "$dir" &> /dev/null
+    done
+}
+
 
 #========Exports=========
 export MANPATH="/usr/local/man"
@@ -72,13 +107,16 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-#export PATH=/usr/local/opt/openssl/bin:$PATH
 
-# ===  fzf  ===
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+
+export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/amaslakou/.sdkman"
+[[ -s "/Users/amaslakou/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/amaslakou/.sdkman/bin/sdkman-init.sh"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/amaslakou/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/amaslakou/Downloads/google-cloud-sdk/path.zsh.inc'; fi
@@ -86,8 +124,4 @@ if [ -f '/Users/amaslakou/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/U
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/amaslakou/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/amaslakou/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/amaslakou/.sdkman"
-[[ -s "/Users/amaslakou/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/amaslakou/.sdkman/bin/sdkman-init.sh"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
