@@ -13,7 +13,6 @@ syntax on
 " endif
 set background=dark
 " set background=light
-colorscheme gruvbox
 set termguicolors
 
 " highlight breaks sometimes when crolling  large files
@@ -626,6 +625,7 @@ let g:vimwiki_list = [{'path': '/Users/amaslakou/Library/Mobile\ Documents/com~a
 
 call plug#end()
 
+colorscheme gruvbox " fixed by moving under end()
 
 
 "|> Filetypes
