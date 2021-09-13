@@ -34,7 +34,6 @@ set splitbelow
 set splitright
 
 
-
 """ Configs:
 " Hotkeys
 let mapleader = ","
@@ -491,6 +490,7 @@ nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
 """""""
 " https://github.com/junegunn/fzf.vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+set rtp+=/usr/local/bin/fzf
 Plug 'junegunn/fzf.vim'
 
 " Main FZF-hotkeys 
