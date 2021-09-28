@@ -14,14 +14,20 @@ plugins=(
   git
   aws
   docker
+  kubectl
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
+
 
 # Prompt setup
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "
+
+# K8 prompt
+SPACESHIP_KUBECTL_SHOW=true
+SPACESHIP_KUBECTL_VERSION_SHOW=false
 
 
 # NO FUCKING SHARING HISTORY!!!!!!!!!!!!!
@@ -54,6 +60,7 @@ alias trp='tree -Cpu'
 alias trd='tree -C -d'
 alias free_space='diskutil info / | grep "Free"'
 alias k8='kubectl'
+alias ll="exa -la --group-directories-first"
 
 #  Web tools
 alias weather='curl wttr.in/Minsk'
@@ -73,9 +80,11 @@ alias tf='terraform'
 alias subl='open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias tmuxrc='vim ~/.tmux.conf'
 
-#
+
 ### FZF
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+bindkey -s '^e' 'vim $(fzf)\n'
+
+export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border'
 function cd() {
     if [[ "$#" != 0 ]]; then
         builtin cd "$@";
@@ -95,6 +104,15 @@ function cd() {
         builtin cd "$dir" &> /dev/null
     done
 }
+
+# https://betterprogramming.pub/boost-your-command-line-productivity-with-fuzzy-finder-985aa162ba5d
+# find-in-file - usage: fif <SEARCH_TERM>
+# fif() {
+#   if [ ! "$#" -gt 0 ]; then
+#     echo "Need a string to search for!";
+#     return 1;
+#   fi  rg --files-with-matches --no-messages "$1" | fzf $FZF_PREVIEW_WINDOW --preview "rg --ignore-case --pretty --context 10 '$1' {}"
+# }
 
 
 #========Exports=========
@@ -118,6 +136,7 @@ export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
 export SDKMAN_DIR="/Users/amaslakou/.sdkman"
 [[ -s "/Users/amaslakou/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/amaslakou/.sdkman/bin/sdkman-init.sh"
 
+# FZF ctrl+R history search and other autocompletes
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
@@ -129,3 +148,5 @@ if [ -f "$GCLOUD_PATH/path.zsh.inc" ]; then . "$GCLOUD_PATH/path.zsh.inc"; fi
 # The next line enables shell command completion for gcloud.
 if [ -f "$GCLOUD_PATH/completion.zsh.inc" ]; then . "$GCLOUD_PATH/completion.zsh.inc"; fi
 [[ /Users/antonmaslakov/.gcloud-sdk/bin/kubectl ]] && source <(kubectl completion zsh)
+
+source /Users/antonmaslakov/.config/broot/launcher/bash/br
