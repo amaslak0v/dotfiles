@@ -1,13 +1,21 @@
-#===== если пизданулись значки - то проблема в fonts в iterm переставить на SourceCodePro+Powerline+Awesome Regular 
+### DOCS:
+# если сломались значки - то проблема в fonts в iterm переставить на SourceCodePro+Powerline+Awesome Regular 
+#
+
+
 export ZSH=$HOME/.oh-my-zsh
 export TERM="screen-256color"
-
-#========| THEME SETTINGS |===========
-ZSH_THEME="spaceship"
 export LS_COLORS=$LS_COLORS:'di=1;35:' 
 COLORTERM="truecolor"
 
-#==========| ZSH SETTINGS |=============
+### THEME SETTINGS 
+#
+# ZSH_THEME="spaceship"
+# ZSH_THEME="robbyrussell"
+autoload -U promptinit; promptinit
+prompt pure
+
+# ZSH Plugins
 plugins=(
   vi-mode
   osx
@@ -19,62 +27,49 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-
-# Prompt setup
-SPACESHIP_PROMPT_ADD_NEWLINE=false
-SPACESHIP_CHAR_SYMBOL="❯"
-SPACESHIP_CHAR_SUFFIX=" "
-
-# K8 prompt
-SPACESHIP_KUBECTL_SHOW=true
-SPACESHIP_KUBECTL_VERSION_SHOW=false
+### robbyrussell settings
+# MODE_INDICATOR="%F{yellow}+%f"
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
 
 
-# NO FUCKING SHARING HISTORY!!!!!!!!!!!!!
+
+### ZSH Settings
+# NO SHARING HISTORY!
 unsetopt inc_append_history
 unsetopt share_history
-
 #Alert if bg jobs running
 setopt CHECK_JOBS
 #Info about bg jobs
 setopt NOTIFY
 
 source $ZSH/oh-my-zsh.sh
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES # escaping python error panic
 
-# Dotenv aliases
+
+### Aliases
+# dotenv
 alias zshrc="vim ~/.zshrc"
 alias szshrc='source ~/.zshrc'
-# alias vimrc='vim ~/.vimrc'
-# alias svimrc='source ~/.vimrc'
 alias vim='nvim'
 alias vimrc='vim ~/.config/nvim/init.vim'
 alias svimrc='source ~/.config/nvim/init.vim'
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias sshconf='vim ~/.ssh/config'
 alias fishrc='vim ~/.config/fish/config.fish'
-
-# System aliases
+# System 
 alias cat='bat'
 alias trc='tree -C'
 alias trp='tree -Cpu'
 alias trd='tree -C -d'
 alias free_space='diskutil info / | grep "Free"'
-alias k8='kubectl'
 alias ll="exa -la --group-directories-first"
-
-#  Web tools
+# Web tools
 alias weather='curl wttr.in/Minsk'
 alias ip='curl ifconfig.co'
 alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
 alias star_wars='telnet towel.blinkenlights.nl'
-
-# Appsnkenlights.nl
-# aliases
-alias obsidan='open /Applications/Obsidian.app'
-alias star-wars=nkenlights.nl''
-alias wi='vim -c VimwikiIndex'
-WIKI_PATH='/Users/amaslakou/Library/Mobile\ Documents/com~apple~CloudDocs/wiki/'
-alias host-wiki="cd $WIKI_PATH && python -m SimpleHTTPServer 80"
+# tools
 alias local-ip='ipconfig getifaddr en0'
 alias tf='terraform'
 alias subl='open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
@@ -82,8 +77,9 @@ alias tmuxrc='vim ~/.tmux.conf'
 
 
 ### FZF
+# CTRL + E - search&open file in vim
 bindkey -s '^e' 'vim $(fzf)\n'
-
+# FZF defaults
 export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border'
 function cd() {
     if [[ "$#" != 0 ]]; then
@@ -116,11 +112,8 @@ function cd() {
 
 
 #========Exports=========
-export MANPATH="/usr/local/man"
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home
-export JRE_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre"
 export EDITOR="vim" 
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES # escaping python error panic
+export MANPATH="/usr/local/man"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export LANG=en_US.UTF-8
@@ -145,8 +138,7 @@ GCLOUD_PATH='/Users/antonmaslakov/.gcloud-sdk'
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$GCLOUD_PATH/path.zsh.inc" ]; then . "$GCLOUD_PATH/path.zsh.inc"; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f "$GCLOUD_PATH/completion.zsh.inc" ]; then . "$GCLOUD_PATH/completion.zsh.inc"; fi
-[[ /Users/antonmaslakov/.gcloud-sdk/bin/kubectl ]] && source <(kubectl completion zsh)
+# # The next line enables shell command completion for gcloud.
+# if [ -f "$GCLOUD_PATH/completion.zsh.inc" ]; then . "$GCLOUD_PATH/completion.zsh.inc"; fi
+# [[ /Users/antonmaslakov/.gcloud-sdk/bin/kubectl ]] && source <(kubectl completion zsh)
 
-source /Users/antonmaslakov/.config/broot/launcher/bash/br
