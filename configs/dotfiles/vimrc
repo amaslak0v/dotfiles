@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 filetype plugin on    " To ignore plugin indent changes, instead use: filetype plugin on
 
 set nocompatible
@@ -638,3 +640,4 @@ nmap <leader>vi :tabedit ~/.config/nvim/init.vim<cr>
 
 
 filetype plugin on    " To ignore plugin indent changes, instead use: filetype plugin on
+>>>>>>> 5461d3d731232695a617ede7bd3545b0f51d3973
