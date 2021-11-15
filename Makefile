@@ -6,7 +6,10 @@ save-dotfiles:
 	cat ~/.config/nvim/init.vim > $(CONF_DIR)/dotfiles/vimrc;
 	cat ~/.zshrc > $(CONF_DIR)/dotfiles/zshrc;
 	cat ~/.tmux.conf> $(CONF_DIR)/dotfiles/tmux.conf;
-	cp -r ~/.config/fish $(CONF_DIR)/dotfiles/fish;
+	@echo "> Save BTT configs manually"
+	@echo "> Save Iterm configs manually"
+	@echo "> Save Alfred configs manually"
+
 
 .PHONY: update-local-dotfiles
 update-local-dotfiles:
