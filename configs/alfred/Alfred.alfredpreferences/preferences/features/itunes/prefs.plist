@@ -13,6 +13,8 @@
 		<key>string</key>
 		<string></string>
 	</dict>
+	<key>keywordEnabled</key>
+	<false/>
 	<key>largerRandomAlbumsOnly</key>
 	<false/>
 	<key>showPlaylists</key>

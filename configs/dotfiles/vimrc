@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 filetype plugin on    " To ignore plugin indent changes, instead use: filetype plugin on
 
 set nocompatible
@@ -60,7 +58,7 @@ nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
 
 " Performance: 
-let g:loaded_matchparen=1 " disable auto matching parens
+" let g:loaded_matchparen=1 " disable auto matching parens
 set nolist " don't render special chars (tabs, trails, ...)
 set ttyfast
 
@@ -162,6 +160,10 @@ call plug#begin('~/.vim/plugged')
 """""""""""""""
 "|>  Complition
 """""""""""""""
+
+" Github Co-pilot
+Plug 'github/copilot.vim'
+
 " Ansible: https://github.com/pearofducks/ansible-vim
 " Plug 'pearofducks/ansible-vim'
 
@@ -455,7 +457,7 @@ Plug 'preservim/nerdtree' |
 nnoremap <C-e> :NERDTreeToggle<CR>
 
 " Automatically close NerdTree when you open a file
-let NERDTreeQuitOnOpen = 1
+let NERDTreeQuitOnOpen = 0
 let NERDTreeAutoDeleteBuffer = 1
 
 " Auto change the directory to the current file I'm working on
@@ -484,7 +486,8 @@ nnoremap <silent> <C-w> :Windows<CR>
 nnoremap <silent> <C-b> :Buffers<CR>
 nnoremap <silent> <C-f> :Files<CR>
 nnoremap <silent> <C-a> :Rg<Cr>
-nnoremap <silent> <C-g> :Commits<CR>
+nnoremap <silent> <C-g> :Git blame<CR>
+" nnoremap <silent> <C-h> :History:<CR> # binded to windows switch
 nnoremap <silent> <Leader>h :History:<CR>
 nnoremap <silent> <Leader>/ :BLines<CR>
 nnoremap <silent> <Leader>' :Marks<CR>
@@ -553,7 +556,7 @@ Plug 'kshenoy/vim-signature'
 """"""""""""""""""""
 "> Folding&Indents
 """"""""""""""""""""
-" Folding:
+" Folding:   Z + C
 set foldmethod=indent
 set foldlevel=99
 
@@ -640,4 +643,3 @@ nmap <leader>vi :tabedit ~/.config/nvim/init.vim<cr>
 
 
 filetype plugin on    " To ignore plugin indent changes, instead use: filetype plugin on
->>>>>>> 5461d3d731232695a617ede7bd3545b0f51d3973

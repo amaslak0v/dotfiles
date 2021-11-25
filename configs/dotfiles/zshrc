@@ -13,19 +13,27 @@ COLORTERM="truecolor"
 # ZSH_THEME="spaceship"
 # ZSH_THEME="robbyrussell"
 autoload -U promptinit; promptinit
+zstyle ':prompt:pure:prompt:*' color cyan
+zstyle :prompt:pure:git:branch color red
+zstyle execution_time show yes
 prompt pure
+
 
 # ZSH Plugins
 plugins=(
   vi-mode
-  osx
+  macos
   git
   aws
   docker
   kubectl
+  # zsh-kubectl-prompt
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
+
+# RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+
 
 ### robbyrussell settings
 # MODE_INDICATOR="%F{yellow}+%f"
@@ -52,6 +60,7 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES # escaping python error panic
 alias zshrc="vim ~/.zshrc"
 alias szshrc='source ~/.zshrc'
 alias vim='nvim'
+alias v='vim'
 alias vimrc='vim ~/.config/nvim/init.vim'
 alias svimrc='source ~/.config/nvim/init.vim'
 alias ohmyzsh="vim ~/.oh-my-zsh"
@@ -63,7 +72,8 @@ alias trc='tree -C'
 alias trp='tree -Cpu'
 alias trd='tree -C -d'
 alias free_space='diskutil info / | grep "Free"'
-alias ll="exa -la --group-directories-first"
+# alias ll="exa -la --group-directories-first"
+alias l="exa -la --group-directories-first"
 # Web tools
 alias weather='curl wttr.in/Minsk'
 alias ip='curl ifconfig.co'
@@ -78,7 +88,8 @@ alias tmuxrc='vim ~/.tmux.conf'
 
 ### FZF
 # CTRL + E - search&open file in vim
-bindkey -s '^e' 'vim $(fzf)\n'
+# bindkey -s '^e' 'vim $(fzf)\n'
+
 # FZF defaults
 export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border'
 function cd() {
@@ -100,6 +111,9 @@ function cd() {
         builtin cd "$dir" &> /dev/null
     done
 }
+#
+# FZF ctrl+R history search and other autocompletes
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # https://betterprogramming.pub/boost-your-command-line-productivity-with-fuzzy-finder-985aa162ba5d
 # find-in-file - usage: fif <SEARCH_TERM>
@@ -118,21 +132,21 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$PATH:$HOME/bin"
 
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
+# Inspectorio toolset
+export PATH="$PATH:/Users/antonmaslakov/Workspace/repos/terraform/tools/"
 
 export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
+# Iterm2 integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/amaslakou/.sdkman"
 [[ -s "/Users/amaslakou/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/amaslakou/.sdkman/bin/sdkman-init.sh"
 
-# FZF ctrl+R history search and other autocompletes
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-
+# GCLOUD
 GCLOUD_PATH='/Users/antonmaslakov/.gcloud-sdk'
 
 # The next line updates PATH for the Google Cloud SDK.
