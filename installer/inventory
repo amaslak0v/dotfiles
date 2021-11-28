@@ -1,3 +1,0 @@
-[all]
-vagrant ansible_host=127.0.0.1 ansible_port=2222
-bep ansible_host=10.214.74.239

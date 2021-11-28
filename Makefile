@@ -2,25 +2,21 @@ CONF_DIR:=configs
 
 .PHONY: save-dotfiles
 save-dotfiles:
-	@echo "Updating configs"
-	cat ~/.config/nvim/init.vim > $(CONF_DIR)/dotfiles/vimrc;
-	cat ~/.zshrc > $(CONF_DIR)/dotfiles/zshrc;
-	cat ~/.tmux.conf> $(CONF_DIR)/dotfiles/tmux.conf;
+	@echo "Backuping configs"
+	cat ~/.config/nvim/init.vim > backup/vimrc;
+	cat ~/.zshrc > backup/zshrc;
+	cat ~/.tmux.conf > backup/tmux.conf;
+	brew list > $(CONF_DIR)/brew-list.txt
 	@echo "> Save BTT configs manually"
 	@echo "> Save Iterm configs manually"
-	@echo "> Save Alfred configs manually"
+	@echo "> Save Alfred configs manually" # symlink alfred in configs to .dotfilerepo
 
-
-.PHONY: update-local-dotfiles
-update-local-dotfiles:
-	cat $(CONF_DIR)/dotfiles/zshrc > ~/.zshrc;
-	cat $(CONF_DIR)/dotfiles/vimrc > ~/.config/nvim/init.vim;
-	cat $(CONF_DIR)/dotfiles/tmux.conf > ~/.tmux.conf;
-
-.PHONY: install-dotfiles
-install-dotfiles:
-# params vagrant@1.1.1.1 	
-	ansible-playbook -i ${ANSIBLE_HOST}, installer/dotfiles.yml -u root -k
-
-#.PHONY create-centos-env
-#create-centos-env:
+.PHONY: init
+init: save-dotfiles
+	@echo "How .dotfile works"
+	@echo "Backing up dotfiles"
+	@echo "Symlinking vimrc, zshrc, tmuxrc with locals"
+	ln -s -f ~/.dotfiles/vimrc ~/.config/nvim/init.vim
+	ln -s -f ~/.dotfiles/zshrc ~/.zshrc
+	ln -s -f ~/.dotfiles/tmux.conf ~/.tmux.conf
+	@echo "Symlynk(via UI) settings of Alfred and BTT to .dotenv"
