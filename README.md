@@ -9,3 +9,10 @@
 * BTT
 
 Backup scripts and environments
+
+
+### TODO
+dump installed APPS:
+- Transmission
+- VSCODE
+- ...
