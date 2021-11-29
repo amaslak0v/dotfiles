@@ -6,7 +6,7 @@ save-dotfiles:
 	cat ~/.config/nvim/init.vim > backup/vimrc;
 	cat ~/.zshrc > backup/zshrc;
 	cat ~/.tmux.conf > backup/tmux.conf;
-	brew list > $(CONF_DIR)/brew-list.txt
+	brew bundle dump --describe
 	@echo "> Save BTT configs manually"
 	@echo "> Save Iterm configs manually"
 	@echo "> Save Alfred configs manually" # symlink alfred in configs to .dotfilerepo
