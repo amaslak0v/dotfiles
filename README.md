@@ -1,2 +1,11 @@
-# personal-conf
-All my custom configs and tools:zshrc, vimrc, iterm cof, BTT and etc.
+# Personal dotfiles
+
+* zsh
+* vim
+* tmux
+* brew
+* alfred
+* iterm2
+* BTT
+
+Backup scripts and environments
