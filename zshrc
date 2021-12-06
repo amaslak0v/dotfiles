@@ -134,6 +134,8 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$PATH:$HOME/bin"
+# k8 editor
+export KUBE_EDITOR='vim'
 
 # Inspectorio toolset
 export PATH="$PATH:/Users/antonmaslakov/Workspace/repos/terraform/tools/"
