@@ -2,6 +2,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
 tap "jesseduffield/lazydocker"
+tap "ringohub/redis-cli"
 tap "superbrothers/zsh-kubectl-prompt"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
@@ -67,5 +68,7 @@ brew "wget"
 brew "yamllint"
 # Process YAML documents from the CLI
 brew "yq"
+# Install the redis-cli only.
+brew "ringohub/redis-cli/redis-cli"
 # Display information about the kubectl current context and namespace in zsh prompt.
 brew "superbrothers/zsh-kubectl-prompt/zsh-kubectl-prompt"
