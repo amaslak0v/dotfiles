@@ -38,4 +38,3 @@
   - time: 0 5 * * *
     command: brew update && brew upgrade
     platform: darwin                        # Optional
-    
