@@ -66,12 +66,14 @@ alias svimrc='source ~/.config/nvim/init.vim'
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias sshconf='vim ~/.ssh/config'
 alias fishrc='vim ~/.config/fish/config.fish'
+alias tmuxrc='vim ~/.tmux.conf'
 # System 
 alias cat='bat'
 alias trc='tree -C'
 alias trp='tree -Cpu'
 alias trd='tree -C -d'
 alias free_space='diskutil info / | grep "Free"'
+alias pip='pip3'
 # alias ll="exa -la --group-directories-first"
 alias l="exa -la --group-directories-first"
 # Web tools
@@ -83,7 +85,6 @@ alias star_wars='telnet towel.blinkenlights.nl'
 alias local-ip='ipconfig getifaddr en0'
 alias tf='terraform'
 alias subl='open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-alias tmuxrc='vim ~/.tmux.conf'
 
 
 ### FZF
@@ -133,14 +134,16 @@ export PATH=$PATH:$GOPATH/bin
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export PATH="/usr/local/sbin:$PATH"
+export PATH="$PATH:/usr/sbin"
 export PATH="$PATH:$HOME/bin"
 # k8 editor
-export KUBE_EDITOR='vim'
+export KUBE_EDITOR='nvim'
 
 # Inspectorio toolset
 export PATH="$PATH:/Users/antonmaslakov/Workspace/repos/terraform/tools/"
 
 export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
+
 # Iterm2 integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

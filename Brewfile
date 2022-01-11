@@ -22,6 +22,8 @@ brew "grpcurl"
 brew "helm"
 # Improved top (interactive process viewer)
 brew "htop"
+# Istio configuration command-line utility
+brew "istioctl"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # FAST Kubernetes manifests validator, with support for Custom Resources!

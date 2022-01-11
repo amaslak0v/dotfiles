@@ -121,8 +121,8 @@ set textwidth=500 " Maximum width of text that is being inserted.
 set selection=exclusive
 
 " Visual mode pressing * or # searches for the current selection
-vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+" vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+" vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
 " Selection don't drop after text moving by < >
 vnoremap < <gv  
@@ -334,6 +334,11 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Plug 'jiangmiao/auto-pairs' 
 
 
+" Search highlighted text
+" https://vimawesome.com/plugin/searchhighlighting
+" Plug 'inkarkat/vim-searchhighlighting'
+
+
 """"""""""""""""""""""""""""""""""
 "> Visual wrapping: S + anyBracket
 """"""""""""""""""""""""""""""""""
@@ -501,7 +506,7 @@ nnoremap <silent> <Leader>h/ :History/<CR>
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
 
 " - down / up / left / right
-let g:fzf_layout = { 'down': '~60%' }
+let g:fzf_layout = { 'down': '~90%' }
 
 " Enable per-command history
 " - History files will be stored in the specified directory
