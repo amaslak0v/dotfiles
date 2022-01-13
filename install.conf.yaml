@@ -12,9 +12,9 @@
 - link:
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
-    # ~/.vimrc: vimrc
     ~/.config/nvim/init.vim: vimrc
     ~/.macos: macos
+    ~/.gitconfig: gitconfig
 
 - create:
     - ~/workspace
@@ -37,4 +37,4 @@
     value: 10
   - time: 0 5 * * *
     command: brew update && brew upgrade
-    platform: darwin                        # Optional
+    platform: darwin  

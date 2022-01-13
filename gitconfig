@@ -1,0 +1,9 @@
+[user]
+	name = Anton Maslakov
+	email = anton.maslakov@inspectorio.com
+[pull]
+	rebase = false
+[core]
+	editor = nvim
+[alias]
+	cm = push -o merge_request.create -o merge_request.target=master
