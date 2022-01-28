@@ -6,4 +6,4 @@
 [core]
 	editor = nvim
 [alias]
-	cm = push -o merge_request.create -o merge_request.target=master
+	mr = push -o merge_request.create -o merge_request.target=master

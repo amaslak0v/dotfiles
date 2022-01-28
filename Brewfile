@@ -26,6 +26,8 @@ brew "htop"
 brew "istioctl"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Kubernetes prompt info for bash and zsh
+brew "kube-ps1"
 # FAST Kubernetes manifests validator, with support for Custom Resources!
 brew "kubeconform"
 # Postgres C API library

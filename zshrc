@@ -13,6 +13,7 @@ COLORTERM="truecolor"
 # ZSH_THEME="spaceship"
 # ZSH_THEME="robbyrussell"
 autoload -U promptinit; promptinit
+zstyle -s ':zsh-kubectl-prompt:' separator separator
 zstyle ':prompt:pure:prompt:*' color cyan
 zstyle :prompt:pure:git:branch color red
 zstyle execution_time show yes
@@ -32,7 +33,8 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-# RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+RPROMPT='$(kube_ps1)'$PROMPT
 
 
 ### robbyrussell settings
@@ -77,7 +79,8 @@ alias pip='pip3'
 # alias ll="exa -la --group-directories-first"
 alias l="exa -la --group-directories-first"
 # Web tools
-alias weather='curl wttr.in/Minsk'
+alias weather_minsk='curl wttr.in/Minsk'
+alias weather='curl wttr.in'
 alias ip='curl ifconfig.co'
 alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
 alias star_wars='telnet towel.blinkenlights.nl'
