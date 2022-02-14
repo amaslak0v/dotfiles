@@ -22,7 +22,7 @@ prompt pure
 
 # ZSH Plugins
 plugins=(
-  vi-mode
+  zsh-vi-mode
   macos
   git
   aws
@@ -36,6 +36,9 @@ plugins=(
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 RPROMPT='$(kube_ps1)'$PROMPT
 
+# Skip using my vimrc in zsh-vi-mode
+# VIM_MODE_NO_DEFAULT_BINDINGS=true
+ZVM_VI_EDITOR=nvim
 
 ### robbyrussell settings
 # MODE_INDICATOR="%F{yellow}+%f"
@@ -78,6 +81,7 @@ alias free_space='diskutil info / | grep "Free"'
 alias pip='pip3'
 # alias ll="exa -la --group-directories-first"
 alias l="exa -la --group-directories-first"
+alias wattage='system_profiler SPPowerDataType | rg Wattage'
 # Web tools
 alias weather_minsk='curl wttr.in/Minsk'
 alias weather='curl wttr.in'
@@ -89,6 +93,10 @@ alias local-ip='ipconfig getifaddr en0'
 alias tf='terraform'
 alias subl='open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
+
+
+# Resolve zsh-vi-mode unable to use ZSH: 
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 
 ### FZF
 # CTRL + E - search&open file in vim
