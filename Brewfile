@@ -36,8 +36,6 @@ brew "libpq", link: true
 brew "neovim", args: ["HEAD"]
 # HTTP/2 C Library
 brew "nghttp2"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.9"
 # Platform built on V8 to build network applications
 brew "node"
 # Highly capable, feature-rich programming language
@@ -50,10 +48,16 @@ brew "pre-commit"
 brew "prometheus"
 # Pretty, minimal and fast ZSH prompt
 brew "pure"
+# Secure and efficient FTP server
+brew "pure-ftpd"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Monitors sleep, wakeup, and idleness of a Mac
 brew "sleepwatcher"
+# User interface to the TELNET protocol
+brew "telnet"
 # Tool to build, change, and version infrastructure
 brew "terraform"
 # Code-search similar to ack
@@ -70,6 +74,8 @@ brew "watch"
 brew "wget"
 # Linter for YAML files
 brew "yamllint"
+# JavaScript package manager
+brew "yarn"
 # Process YAML documents from the CLI
 brew "yq"
 # Install the redis-cli only.
