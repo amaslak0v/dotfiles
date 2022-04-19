@@ -19,6 +19,8 @@ brew "cdk8s"
 brew "libpq", link: true
 # Dependency Manager for PHP
 brew "composer"
+# HTTP load testing application written in Rust
+brew "drill"
 # Modern replacement for 'ls'
 brew "exa"
 # Command-line fuzzy finder written in Go
@@ -33,6 +35,10 @@ brew "grpcurl"
 brew "helm"
 # Improved top (interactive process viewer)
 brew "htop"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
+# User-friendly cURL replacement (command-line HTTP client)
+brew "httpie"
 # Istio configuration command-line utility
 brew "istioctl"
 # Lightweight and flexible command-line JSON processor
@@ -45,12 +51,12 @@ brew "kubeconform"
 brew "neovim", args: ["HEAD"]
 # HTTP/2 C Library
 brew "nghttp2"
+# HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
+brew "nginx"
 # Highly capable, feature-rich programming language
 brew "perl"
 # General-purpose scripting language
-brew "php@7.4", link: true
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
+brew "php@7.4"
 # Python dependency management tool
 brew "pipenv"
 # Framework for managing multi-language pre-commit hooks

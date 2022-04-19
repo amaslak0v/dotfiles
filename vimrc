@@ -5,19 +5,8 @@ set nocompatible
 " Shared clipboard for all set clipboard=unnamed
 set spelllang=en_us
 
-
-" Colorscheme:
-syntax on
-" if has('termguicolors')
-"   set termguicolors
-" endif
-set background=dark
-" set background=light
-set termguicolors
-
 " highlight breaks sometimes when crolling  large files
 autocmd BufEnter * :syntax sync fromstart
-
 
 " Numbers:
 set nu " Set line numbers
@@ -157,6 +146,10 @@ call plug#begin('~/.vim/plugged')
 " let g:XkbSwitchEnabled = 1 "Дёргаем рубильник
 
 
+""" Custom home screen for vim
+" https://github.com/mhinz/vim-startify
+Plug 'mhinz/vim-startify'
+
 """""""""""""""
 "|>  Complition
 """""""""""""""
@@ -169,6 +162,15 @@ Plug 'github/copilot.vim'
 
 "> Language highlight
 Plug 'sheerun/vim-polyglot'
+
+""" Nginx syntax
+" https://github.com/chr4/nginx.vim
+Plug 'chr4/nginx.vim'
+
+
+""" Docker syntax
+" https://github.com/ekalinin/Dockerfile.vim
+Plug 'ekalinin/Dockerfile.vim'
 
 """""""
 ">> COC
@@ -419,83 +421,41 @@ nmap ga <Plug>(EasyAlign)
 
 
 
-
-""""""""""
-">> Themes 
-
-" Grubox
-" https://github.com/morhetz/gruvbox/wiki/Configuration
-Plug 'morhetz/gruvbox'
-""""""""""
-
-" Dracula
-" https://draculatheme.com/vim
-Plug 'dracula/vim', { 'as': 'dracula' }
-
-" [options]
-" [[custom_plugins]]
-"   repo = "dracula/vim"
-"   name = "dracula"
-"   merged = false
-
-" https://github.com/franbach/miramare
-" Plug 'franbach/miramare'
-
-" https://github.com/sainnhe/edge
-" Plug 'sainnhe/edge'
-
 ">> Focus Mode
 " https://github.com/junegunn/goyo.vim
-Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/goyo.vim'
 
 
-""""""""""""""
-"|> Statusline
-""""""""""""""
+""" Statusline
 Plug 'bling/vim-airline'
-
 Plug 'vim-airline/vim-airline-themes'
 
 
-""""""""""""""""""""""""""
-"> Bracket pairs highlight
 
-" Plug 'djdt/pyparens.nvim'
-""""""""""""""""""""""""""
-
-
-"> Nerdtree
+""" Nerdtree
 Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin'
-
 " Don't use fucking :NERDTree and :NERDTreeFocus
 nnoremap <C-e> :NERDTreeToggle<CR>
-
 " Automatically close NerdTree when you open a file
 let NERDTreeQuitOnOpen = 0
 let NERDTreeAutoDeleteBuffer = 1
-
 " Auto change the directory to the current file I'm working on
 " autocmd BufEnter * lcd %:p:h
-
 " UI
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
-
 " default arrows
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 
 
-"""""""
-">> FZF 
-"""""""
+""" FZF 
 " https://github.com/junegunn/fzf.vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 set rtp+=/usr/local/bin/fzf
 Plug 'junegunn/fzf.vim'
-
 " Main FZF-hotkeys 
 nnoremap <silent> <C-w> :Windows<CR>
 nnoremap <silent> <C-b> :Buffers<CR>
@@ -510,36 +470,32 @@ nnoremap <silent> <Leader>H :Helptags<CR>
 nnoremap <silent> <Leader>hh :History<CR>
 " nnoremap <silent> <Leader>h: :History:<CR>
 nnoremap <silent> <Leader>h/ :History/<CR>
-
+"
 " Default fzf layout
 " - Popup window
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
-
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~90%' }
-
 " Enable per-command history
 " - History files will be stored in the specified directory
 " - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
-
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
-
 " An action can be a reference to a function that processes selected lines
 function! s:build_quickfix_list(lines)
     call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
     copen
     cc
 endfunction
-
+" Actions
 let g:fzf_action = {
             \ 'ctrl-q': function('s:build_quickfix_list'),
             \ 'ctrl-t': 'tab split',
             \ 'ctrl-x': 'split',
             \ 'ctrl-v': 'vsplit' }
-
+"
 command! -bang -nargs=? -complete=dir Files
             \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
@@ -604,21 +560,34 @@ let g:vimwiki_list = [{'path': '/Users/amaslakou/Library/Mobile\ Documents/com~a
 " https://github.com/rizzatti/dash.vim#readme
 " Plug 'rizzatti/dash.vim'
 
-" Plug 'burnettk/vim-jenkins'
-" let g:jenkins_url = 'https://jenkins.workfusion.com'
-" let g:jenkins_username = 'amaslakou'
-" let g:jenkins_password = 'J99yopp$'
+
+""" Themes 
+
+"" Grubox
+" https://github.com/morhetz/gruvbox/wiki/Configuration
+" Plug 'morhetz/gruvbox'
+
+"" Dracula
+" https://draculatheme.com/vim
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 call plug#end()
 
-colorscheme gruvbox " fixed by moving under end()
-  " colorscheme  "dracula"
-  " colorscheme_bg  "dark"
+
+" Colorscheme:
+syntax on
+set background=dark
+" set background=light
+set termguicolors
+
+" Check plugin in: Themes
+" colorscheme gruvbox " fixed by moving under end()
+colorscheme dracula
 
 
 "|> Filetypes
 
-" JS
+" JS:
 au BufRead,BufNewFile *.sh set filetype=bash
 au FileType sh setlocal sw=2 ts=2 sts=2
 
@@ -653,8 +622,5 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 """ Shortcuts
 " Edit your vimrc in a new tab
 nmap <leader>vi :tabedit ~/.config/nvim/init.vim<cr>
-
-
-
 
 filetype plugin on    " To ignore plugin indent changes, instead use: filetype plugin on
