@@ -24,7 +24,7 @@ set splitright
 
 
 """ Configs:
-" Hotkeys
+" Hotkeys 
 let mapleader = ","
 " cd vim to current files directory
 nmap <leader>cd :cd %:p:h<CR>
@@ -51,33 +51,6 @@ nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 set nolist " don't render special chars (tabs, trails, ...)
 set ttyfast
 
-
-"""""""""
-"">> Netrw
-"""""""""
-"function! ToggleVExplorer()
-"  if exists("t:expl_buf_num")
-"      let expl_win_num = bufwinnr(t:expl_buf_num)
-"      if expl_win_num != -1
-"          let cur_win_nr = winnr()
-"          exec expl_win_num . 'wincmd w'
-"          close
-"          exec cur_win_nr . 'wincmd w'
-"          unlet t:expl_buf_num
-"      else
-"          unlet t:expl_buf_num
-"      endif
-"  else
-"      exec '1wincmd w'
-"      Vexplore
-"      let t:expl_buf_num = bufnr("%")
-"  endif
-"endfunction
-"" Toggle Vexplore with Ctrl-E
-"map <silent> <C-E> :call ToggleVExplorer()<CR>
-
-
-
 """  Globalprops
 set noswapfile " disable swap file
 set wildmenu " Used for command line completion
@@ -103,15 +76,12 @@ set si "Smart indent
 " Insertion
 set textwidth=500 " Maximum width of text that is being inserted.
 
-
 """ Visual_mode:
-
 " Select without last character (under the cursor)
 set selection=exclusive
-
-" Visual mode pressing * or # searches for the current selection
-" vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-" vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
+" 
+" visually select the characters that are wanted in the search, then type // to search for the next occurrence of the selected text. Then press n to search for the next occurrence. 
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " Selection don't drop after text moving by < >
 vnoremap < <gv  
@@ -131,16 +101,6 @@ set mat=2      " How many tenths of a second to blink when matching brackets
 
 call plug#begin('~/.vim/plugged')
 
-" |>  Denite
-" if has('nvim')
-"   Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/denite.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-
-
 " " |> Поддержка Кириллицы
 " Plug 'lyokha/vim-xkbswitch'
 " let g:XkbSwitchEnabled = 1 "Дёргаем рубильник
@@ -149,21 +109,22 @@ call plug#begin('~/.vim/plugged')
 """ Custom home screen for vim
 " https://github.com/mhinz/vim-startify
 Plug 'mhinz/vim-startify'
+" Custom header
+" let g:startify_custom_header = [' [Readme](~/.config/nvim/README.md) ']
+let g:startify_custom_header = 
+            \ map(split(system('sort --random-sort ~/.config/nvim/README.md | head -n 5 | cowsay '), '\n'), '"   ". v:val') + ['','']
 
-"""""""""""""""
-"|>  Complition
-"""""""""""""""
-
-" Github Co-pilot
+"""  COMPLITION
+"> Github Co-pilot
 Plug 'github/copilot.vim'
 
-" Ansible: https://github.com/pearofducks/ansible-vim
+"> Ansible: https://github.com/pearofducks/ansible-vim
 " Plug 'pearofducks/ansible-vim'
 
 "> Language highlight
 Plug 'sheerun/vim-polyglot'
 
-""" Nginx syntax
+"> Nginx syntax
 " https://github.com/chr4/nginx.vim
 Plug 'chr4/nginx.vim'
 
@@ -172,30 +133,21 @@ Plug 'chr4/nginx.vim'
 " https://github.com/ekalinin/Dockerfile.vim
 Plug 'ekalinin/Dockerfile.vim'
 
-"""""""
-">> COC
-"""""""
-" Use release branch (Recommend)
-"https://github.com/neoclide/coc.nvim
+"> COC
+" https://github.com/neoclide/coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
-
 " TextEdit might fail if hidden is not set.
 set hidden
-
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
-
 " Give more space for displaying messages.
 set cmdheight=2
-
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
-
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
-
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
@@ -294,35 +246,12 @@ xmap ic <Plug>(coc-classobj-i)
 omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
-
-" " Remap <C-f> and <C-b> for scroll float windows/popups.
-" " Note coc#float#scroll works on neovim >= 0.4.3 or vim >= 8.2.0750
-" nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-" nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-" inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-" inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-
-" " NeoVim-only mapping for visual mode scroll
-" " Useful on signatureHelp after jump placeholder of snippet expansion
-" if has('nvim')
-"     vnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#nvim_scroll(1, 1) : "\<C-f>"
-"     vnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#nvim_scroll(0, 1) : "\<C-b>"
-" endif
-
-" " Use CTRL-S for selections ranges.
-" " Requires 'textDocument/selectionRange' support of language server.
-" nmap <silent> <C-s> <Plug>(coc-range-select)
-" xmap <silent> <C-s> <Plug>(coc-range-select)
-
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
-
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
@@ -330,107 +259,61 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 
 
+""" Core Plugins
 
-" Make it so that a curly brace automatically inserts an indented line
-" https://github.com/jiangmiao/auto-pairs
-" Plug 'jiangmiao/auto-pairs' 
-
-
-" Search highlighted text
-" https://vimawesome.com/plugin/searchhighlighting
-" Plug 'inkarkat/vim-searchhighlighting'
-
+    "> Wrapping: S + anyBracket
+    " https://github.com/tpope/vim-surround
+    " cs'" changes quotes
+    " ysiw" add quotes
+    " wrap the entire line in parentheses with yssb or yss)
+    Plug 'tpope/vim-surround'
 
 
-" Plugin for Dash socumentation
-" Plug 'rizzatti/dash.vim'
+    "> Repeat commands by .
+    " Enables support of '.' repition for plugins
+    " https://github.com/tpope/vim-repeat
+    Plug 'tpope/vim-repeat'
 
 
-""""""""""""""""""""""""""""""""""
-"> Visual wrapping: S + anyBracket
-""""""""""""""""""""""""""""""""""
-" https://github.com/tpope/vim-surround
-" cs'" changes quotes
-" ysiw" add quotes
-" wrap the entire line in parentheses with yssb or yss)
-Plug 'tpope/vim-surround'
+    "> Comment by `gc`
+    " Visual or indent object + gc
+    " https://github.com/tpope/vim-commentary
+    Plug 'tpope/vim-commentary'
 
 
-""""""""""""""""
-"> Repeat by .
-""""""""""""""""
-" https://github.com/tpope/vim-repeat
-" Enables support of '.' repition for plugins
-Plug 'tpope/vim-repeat'
+    "> Inner Indent
+    " Inner indent as object. C
+    " Select inner indent by gcii
+    " https://github.com/michaeljsmith/vim-indent-object
+    Plug 'michaeljsmith/vim-indent-object'
 
 
-"""""""""""""""""
-"> Comment by `gc`
-"""""""""""""""""
-" Visual or indent object + gc
-" https://github.com/tpope/vim-commentary
-Plug 'tpope/vim-commentary'
+    " Sort by alfabet: gsip
+    " gs2j => Sort down two lines (current + 2 below)
+    " gsip => Sort the current paragraph
+    " gsii => Sort the current indentation level (requires text-obj-indent plugin)
+    " https://github.com/christoomey/vim-sort-motion
+    Plug 'christoomey/vim-sort-motion'
 
 
-"""""""""""""""
-"> Inner Indent
-""""""""""""""" 
-" Inner indent as object. Comment inner indent by gcii
-" https://github.com/michaeljsmith/vim-indent-object
-Plug 'michaeljsmith/vim-indent-object'
+    "> Align text 
+    " https://github.com/junegunn/vim-easy-align
+    Plug 'junegunn/vim-easy-align'
+    " For:
+    "   a   : aaa
+    "   bbb : b
+    " Use: V ga ->(key to right) :
+    " Start interactive EasyAlign in visual mode (e.g. vipga)
+    xmap ga <Plug>(EasyAlign)
+    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+    nmap ga <Plug>(EasyAlign)
 
 
-""""""""""""""""""""""""
-" Sort by alfabet: gsip
-""""""""""""""""""""""""
-" https://github.com/christoomey/vim-sort-motion
-"
-" gs2j => Sort down two lines (current + 2 below)
-" gsip => Sort the current paragraph
-" gsii => Sort the current indentation level (requires text-obj-indent plugin)
-Plug 'christoomey/vim-sort-motion'
-
-
-
-" System copy provides a mapping to copy to the system clipboard using a motion or visual selection. It also provides a mapping for pasting from the system clipboard.
-" The default mapping is cp for copying and cv for pasting, and can be followed by any motion or text object. For instance:
-
-"     cpiw => copy word into system clipboard
-"     cpi' => copy inside single quotes to system clipboard
-"     cvi' => paste inside single quotes from system clipboard
-
-" In addition, cP is mapped to copy the current line directly.
-" The sequence cV is mapped to paste the content of system clipboard to the next line.
-" Plug 'christoomey/vim-system-copy'
-
-
-""""""""""""""
-">> Align text 
-""""""""""""""
-" https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
-" For:
-"   a   : aaa
-"   bbb : b
-" Use: V ga ->(key to right) :
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-
-
-
-">> Focus Mode
-" https://github.com/junegunn/goyo.vim
-" Plug 'junegunn/goyo.vim'
 
 
 """ Statusline
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-
 
 """ Nerdtree
 Plug 'preservim/nerdtree' |
@@ -516,7 +399,6 @@ nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
 nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR>
 
 
-
 " Tmux:
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -547,27 +429,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
 
-" I am using Obsidan
-" VimWiki: 
-" https://github.com/vimwiki/vimwiki
-Plug 'vimwiki/vimwiki'
-" Set Main format as MD
-let g:vimwiki_list = [{'path': '/Users/amaslakou/Library/Mobile\ Documents/com~apple~CloudDocs/wiki/EKB/',
-            \ 'syntax': 'markdown', 'ext': '.md'}]
-
-
-" Dash
-" https://github.com/rizzatti/dash.vim#readme
-" Plug 'rizzatti/dash.vim'
-
-
-""" Themes 
-
-"" Grubox
+""" Themes:
+" Grubox:
 " https://github.com/morhetz/gruvbox/wiki/Configuration
 " Plug 'morhetz/gruvbox'
-
-"" Dracula
+" Dracula:
 " https://draculatheme.com/vim
 Plug 'dracula/vim', { 'as': 'dracula' }
 
@@ -579,45 +445,33 @@ syntax on
 set background=dark
 " set background=light
 set termguicolors
-
 " Check plugin in: Themes
 " colorscheme gruvbox " fixed by moving under end()
 colorscheme dracula
 
-
-"|> Filetypes
-
-" JS:
+""" Filetypes:
+" Bash:
 au BufRead,BufNewFile *.sh set filetype=bash
+" JS:
 au FileType sh setlocal sw=2 ts=2 sts=2
-
+au FileType js setlocal sw=2 ts=2 sts=2
 " Python:
 let python_highlight_all=1
 au FileType python set tabstop=4
-
 " Ansible: https://github.com/pearofducks/ansible-vim
 au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
 au FileType yaml.ansible setlocal sw=2 ts=2 sts=2
-
-" Front:
-"au BufNewFile,BufRead *.js,*.html,*.css
-"
 " JenkinsFile:
 au BufNewFile,BufRead *jenkinsfile* setf groovy
 au FileType groovy setlocal sw=4 ts=4 sts=4
 
-" JS
-au FileType js setlocal sw=2 ts=2 sts=2
 
-
-
-" Visual:
+""" Visual:
 " Status_airline:
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-
 
 """ Shortcuts
 " Edit your vimrc in a new tab
