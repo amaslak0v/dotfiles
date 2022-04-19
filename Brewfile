@@ -1,3 +1,4 @@
+tap "aws/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
@@ -10,10 +11,20 @@ brew "bat"
 brew "bazel"
 # New way to see and navigate directory trees
 brew "broot"
+# Platform built on V8 to build network applications
+brew "node"
+# Define k8s native apps and abstractions using object-oriented programming
+brew "cdk8s"
+# Postgres C API library
+brew "libpq", link: true
+# Dependency Manager for PHP
+brew "composer"
 # Modern replacement for 'ls'
 brew "exa"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # Like cURL, but for gRPC
@@ -30,18 +41,18 @@ brew "jq"
 brew "kube-ps1"
 # FAST Kubernetes manifests validator, with support for Custom Resources!
 brew "kubeconform"
-# Postgres C API library
-brew "libpq", link: true
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim", args: ["HEAD"]
 # HTTP/2 C Library
 brew "nghttp2"
-# Platform built on V8 to build network applications
-brew "node"
 # Highly capable, feature-rich programming language
 brew "perl"
+# General-purpose scripting language
+brew "php@7.4", link: true
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.10"
+# Python dependency management tool
+brew "pipenv"
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
 # Service monitoring system and time series database
@@ -78,6 +89,8 @@ brew "yamllint"
 brew "yarn"
 # Process YAML documents from the CLI
 brew "yq"
+# Copilot CLI - build, release and operate your container apps on AWS
+brew "aws/tap/copilot-cli"
 # Install the redis-cli only.
 brew "ringohub/redis-cli/redis-cli"
 # Display information about the kubectl current context and namespace in zsh prompt.

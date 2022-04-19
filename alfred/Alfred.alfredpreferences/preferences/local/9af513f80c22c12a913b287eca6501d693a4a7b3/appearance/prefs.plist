@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>darkthemeuid</key>
-	<string>theme.bundled.modern</string>
+	<string>theme.bundled.moderndark</string>
 	<key>lightthemeuid</key>
 	<string>theme.bundled.frostyteal</string>
 </dict>

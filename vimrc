@@ -339,6 +339,11 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Plug 'inkarkat/vim-searchhighlighting'
 
 
+
+" Plugin for Dash socumentation
+" Plug 'rizzatti/dash.vim'
+
+
 """"""""""""""""""""""""""""""""""
 "> Visual wrapping: S + anyBracket
 """"""""""""""""""""""""""""""""""
@@ -417,13 +422,21 @@ nmap ga <Plug>(EasyAlign)
 
 """"""""""
 ">> Themes 
-""""""""""
 
-""""""""""
-">> Grubox
+" Grubox
 " https://github.com/morhetz/gruvbox/wiki/Configuration
 Plug 'morhetz/gruvbox'
 """"""""""
+
+" Dracula
+" https://draculatheme.com/vim
+Plug 'dracula/vim', { 'as': 'dracula' }
+
+" [options]
+" [[custom_plugins]]
+"   repo = "dracula/vim"
+"   name = "dracula"
+"   merged = false
 
 " https://github.com/franbach/miramare
 " Plug 'franbach/miramare'
@@ -442,9 +455,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'bling/vim-airline'
 
 Plug 'vim-airline/vim-airline-themes'
-
-
-"Plug 'altercation/vim-colors-solarized'
 
 
 """"""""""""""""""""""""""
@@ -594,8 +604,6 @@ let g:vimwiki_list = [{'path': '/Users/amaslakou/Library/Mobile\ Documents/com~a
 " https://github.com/rizzatti/dash.vim#readme
 " Plug 'rizzatti/dash.vim'
 
-
-
 " Plug 'burnettk/vim-jenkins'
 " let g:jenkins_url = 'https://jenkins.workfusion.com'
 " let g:jenkins_username = 'amaslakou'
@@ -604,6 +612,8 @@ let g:vimwiki_list = [{'path': '/Users/amaslakou/Library/Mobile\ Documents/com~a
 call plug#end()
 
 colorscheme gruvbox " fixed by moving under end()
+  " colorscheme  "dracula"
+  " colorscheme_bg  "dark"
 
 
 "|> Filetypes

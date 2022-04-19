@@ -60,6 +60,7 @@ source $ZSH/oh-my-zsh.sh
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES # escaping python error panic
 
 
+
 ### Aliases
 # dotenv
 alias zshrc="vim ~/.zshrc"
@@ -79,6 +80,7 @@ alias trp='tree -Cpu'
 alias trd='tree -C -d'
 alias free_space='diskutil info / | grep "Free"'
 alias pip='pip3'
+alias python='python3'
 # alias ll="exa -la --group-directories-first"
 alias l="exa -la --group-directories-first"
 alias wattage='system_profiler SPPowerDataType | rg Wattage'
@@ -152,6 +154,9 @@ export KUBE_EDITOR='nvim'
 
 # Inspectorio toolset
 export PATH="$PATH:/Users/antonmaslakov/Workspace/repos/terraform/tools/"
+# io_stg="gcloud --project=inspectorio-dev compute ssh bastion --zone=us-west1-a  --ssh-flag="-Nf' --ssh-flag="-L 11443:35.247.65.175:443"; kubectl config use-context staging'
+# io_pre=''
+# io_prd=''
 
 export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
 
