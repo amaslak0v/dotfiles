@@ -1,5 +1,5 @@
 {
   "yaml.schemas": {
-    "https://json.schemastore.org/kustomization.json": "file:///Users/antonmaslakov/.dotfiles/install.conf.yaml"
+    "https://json.schemastore.org/yamllint.json": "file:///Users/antonmaslakov/.dotfiles/install.conf.yaml"
   }
 }

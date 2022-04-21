@@ -1,7 +1,5 @@
 ### DOCS:
 # если сломались значки - то проблема в fonts в iterm переставить на SourceCodePro+Powerline+Awesome Regular 
-#
-
 
 export ZSH=$HOME/.oh-my-zsh
 export TERM="screen-256color"
@@ -12,40 +10,18 @@ COLORTERM="truecolor"
 #
 # ZSH_THEME="spaceship"
 # ZSH_THEME="robbyrussell"
-autoload -U promptinit; promptinit
-zstyle -s ':zsh-kubectl-prompt:' separator separator
-zstyle ':prompt:pure:prompt:*' color cyan
-zstyle :prompt:pure:git:branch color red
-zstyle execution_time show yes
-prompt pure
-
 
 # ZSH Plugins
 plugins=(
-  zsh-vi-mode
   macos
   git
   aws
   docker
   kubectl
-  # zsh-kubectl-prompt
+  zsh-vi-mode
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
-
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-RPROMPT='$(kube_ps1)'$PROMPT
-
-# Skip using my vimrc in zsh-vi-mode
-# VIM_MODE_NO_DEFAULT_BINDINGS=true
-ZVM_VI_EDITOR=nvim
-
-### robbyrussell settings
-# MODE_INDICATOR="%F{yellow}+%f"
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
-
-
 
 ### ZSH Settings
 # NO SHARING HISTORY!
@@ -176,4 +152,4 @@ if [ -f "$GCLOUD_PATH/path.zsh.inc" ]; then . "$GCLOUD_PATH/path.zsh.inc"; fi
 # # The next line enables shell command completion for gcloud.
 # if [ -f "$GCLOUD_PATH/completion.zsh.inc" ]; then . "$GCLOUD_PATH/completion.zsh.inc"; fi
 # [[ /Users/antonmaslakov/.gcloud-sdk/bin/kubectl ]] && source <(kubectl completion zsh)
-
+eval "$(starship init zsh)"
