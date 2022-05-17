@@ -146,10 +146,13 @@ export SDKMAN_DIR="/Users/amaslakou/.sdkman"
 # GCLOUD
 GCLOUD_PATH='/Users/antonmaslakov/.gcloud-sdk'
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$GCLOUD_PATH/path.zsh.inc" ]; then . "$GCLOUD_PATH/path.zsh.inc"; fi
-
 # # The next line enables shell command completion for gcloud.
 # if [ -f "$GCLOUD_PATH/completion.zsh.inc" ]; then . "$GCLOUD_PATH/completion.zsh.inc"; fi
 # [[ /Users/antonmaslakov/.gcloud-sdk/bin/kubectl ]] && source <(kubectl completion zsh)
 eval "$(starship init zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/antonmaslakov/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/antonmaslakov/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/antonmaslakov/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/antonmaslakov/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
