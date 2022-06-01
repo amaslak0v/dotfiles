@@ -13,11 +13,11 @@ COLORTERM="truecolor"
 
 # ZSH Plugins
 plugins=(
-  macos
+  # macos
   git
   aws
   docker
-  kubectl
+  # kubectl
   zsh-vi-mode
   zsh-autosuggestions
   zsh-syntax-highlighting

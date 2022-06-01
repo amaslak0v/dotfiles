@@ -133,7 +133,7 @@ Plug 'chr4/nginx.vim'
 " https://github.com/ekalinin/Dockerfile.vim
 Plug 'ekalinin/Dockerfile.vim'
 
-"> COC
+"> COC > HARD UPDATE IF FAILING
 " https://github.com/neoclide/coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
 " TextEdit might fail if hidden is not set.
@@ -425,6 +425,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 """""""""""""""
 " Git_Wrapper:
 Plug 'tpope/vim-fugitive'
+" cd .vim/plugged/vim-fugitive/plugin &&    git pull
 " Shows_git_diff: in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
 
@@ -436,6 +437,19 @@ Plug 'airblade/vim-gitgutter'
 " Dracula:
 " https://draculatheme.com/vim
 Plug 'dracula/vim', { 'as': 'dracula' }
+
+" " Troubleshooting plugin
+" " Vim Script
+" Plug 'kyazdani42/nvim-web-devicons'
+" Plug 'folke/trouble.nvim'
+
+" lua << EOF
+"   require("trouble").setup {
+"     -- your configuration comes here
+"     -- or leave it empty to use the default settings
+"     -- refer to the configuration section below
+"   }
+" EOF
 
 call plug#end()
 
