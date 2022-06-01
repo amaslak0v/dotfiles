@@ -13,8 +13,10 @@
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
     ~/.config/nvim/init.vim: vimrc
+    ~/.config/starship.toml: starship.toml
     ~/.macos: macos
     ~/.gitconfig: gitconfig
+    ~/.config/karabiner: karabiner
 
 - create:
     - ~/workspace
