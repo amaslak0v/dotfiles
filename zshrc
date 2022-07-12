@@ -50,6 +50,7 @@ alias sshconf='vim ~/.ssh/config'
 alias fishrc='vim ~/.config/fish/config.fish'
 alias tmuxrc='vim ~/.tmux.conf'
 # System 
+alias k='kubectl'
 alias cat='bat'
 alias trc='tree -C'
 alias trp='tree -Cpu'

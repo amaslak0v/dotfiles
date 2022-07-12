@@ -109,14 +109,32 @@ call plug#begin('~/.vim/plugged')
 """ Custom home screen for vim
 " https://github.com/mhinz/vim-startify
 Plug 'mhinz/vim-startify'
-" Custom header
-" let g:startify_custom_header = [' [Readme](~/.config/nvim/README.md) ']
-let g:startify_custom_header = 
-            \ map(split(system('sort --random-sort ~/.config/nvim/README.md | head -n 5 | cowsay '), '\n'), '"   ". v:val') + ['','']
+
+let g:startify_custom_header = [
+    \ ' > Draw in comments: https://asciiflow.com/',
+    \ '',
+    \ ]
+
+let g:startify_lists = [
+    \ { 'type': 'sessions', 'header': [' Sessions'] },
+    \ { 'type': 'bookmarks', 'header': [' Files'] },
+    \ { 'type': 'dir', 'header': [' Current Directory '. getcwd()] },
+    \ { 'type': 'files', 'header': [' Recent Files'] },
+\ ]
+
+let g:startify_bookmarks = [
+    \ {'v': '~/.vimrc'},
+    \ {'z': '~/.zshrc'},
+    \ {'r': '~/.config/nvim/README.md'},
+\ ]
+
 
 """  COMPLITION
 "> Github Co-pilot
 Plug 'github/copilot.vim'
+" let g.copilot_assume_mapped = true
+highlight CopilotSuggestion guifg=#555555 ctermfg=8
+
 
 "> Ansible: https://github.com/pearofducks/ansible-vim
 " Plug 'pearofducks/ansible-vim'
