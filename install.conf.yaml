@@ -2,10 +2,6 @@
 - defaults:
     link:
       relink: true
-    brewfile:
-      stdout: false
-      stderr: false
-      include: ['tap', 'brew', 'cask', 'mas']
 
 - clean: ['~']
 
@@ -21,15 +17,11 @@
 - create:
     - ~/workspace
 
-# - [brew bundle dump --describe]
-- brewfile:
-  file: Brewfile
-
 - shell:
   - [chsh -s $(which zsh)]
   - [git submodule update --init --recursive, Installing submodules]
-  - [bash macos]
   - [brew bundle dump --describe -f]
+  - [bash macos]
 
 - crontab:
   - key: SHELL
