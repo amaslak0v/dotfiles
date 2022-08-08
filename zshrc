@@ -42,6 +42,7 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES # escaping python error panic
 alias zshrc="vim ~/.zshrc"
 alias szshrc='source ~/.zshrc'
 alias vim='nvim'
+alias vi='vim'
 alias v='vim'
 alias vimrc='vim ~/.config/nvim/init.vim'
 alias svimrc='source ~/.config/nvim/init.vim'
@@ -131,10 +132,6 @@ export KUBE_EDITOR='nvim'
 
 # Inspectorio toolset
 export PATH="$PATH:/Users/antonmaslakov/Workspace/repos/terraform/tools/"
-# io_stg="gcloud --project=inspectorio-dev compute ssh bastion --zone=us-west1-a  --ssh-flag="-Nf' --ssh-flag="-L 11443:35.247.65.175:443"; kubectl config use-context staging'
-# io_pre=''
-# io_prd=''
-
 export DYLD_LIBRARY_PATH=/usr/local/opt/openssl/lib:$DYLD_LIBRARY_PATH
 
 # Iterm2 integration

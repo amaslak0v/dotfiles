@@ -131,9 +131,9 @@ let g:startify_bookmarks = [
 
 """  COMPLITION
 "> Github Co-pilot
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
 " let g.copilot_assume_mapped = true
-highlight CopilotSuggestion guifg=#555555 ctermfg=8
+" highlight CopilotSuggestion guifg=#555555 ctermfg=8
 
 
 "> Ansible: https://github.com/pearofducks/ansible-vim
@@ -154,6 +154,19 @@ Plug 'ekalinin/Dockerfile.vim'
 "> COC > HARD UPDATE IF FAILING
 " https://github.com/neoclide/coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'} 
+
+let g:coc_global_extensions = [
+            \ 'coc-json',
+            \ 'coc-tsserver',
+            \ 'coc-html',
+            \ 'coc-css',
+            \ 'coc-pyright',
+            \ 'coc-sh',
+            \ 'coc-yaml',
+            \ 'coc-spell-checker',
+            \ 'coc-pairs'
+            \ ]
+
 " TextEdit might fail if hidden is not set.
 set hidden
 " Some servers have issues with backup files, see #649.
@@ -334,21 +347,21 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 """ Nerdtree
-Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin'
-" Don't use fucking :NERDTree and :NERDTreeFocus
-nnoremap <C-e> :NERDTreeToggle<CR>
-" Automatically close NerdTree when you open a file
-let NERDTreeQuitOnOpen = 0
-let NERDTreeAutoDeleteBuffer = 1
-" Auto change the directory to the current file I'm working on
-" autocmd BufEnter * lcd %:p:h
-" UI
-let NERDTreeMinimalUI=1
-let NERDTreeDirArrows=1
-" default arrows
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
+    Plug 'preservim/nerdtree' |
+                \ Plug 'Xuyuanp/nerdtree-git-plugin'
+    " Don't use fucking :NERDTree and :NERDTreeFocus
+    nnoremap <C-e> :NERDTreeToggle<CR>
+    " Automatically close NerdTree when you open a file
+    let NERDTreeQuitOnOpen = 0
+    let NERDTreeAutoDeleteBuffer = 1
+    " Auto change the directory to the current file I'm working on
+    " autocmd BufEnter * lcd %:p:h
+    " UI
+    let NERDTreeMinimalUI=1
+    let NERDTreeDirArrows=1
+    " default arrows
+    let g:NERDTreeDirArrowExpandable = '▸'
+    let g:NERDTreeDirArrowCollapsible = '▾'
 
 
 
@@ -452,9 +465,10 @@ Plug 'airblade/vim-gitgutter'
 " Grubox:
 " https://github.com/morhetz/gruvbox/wiki/Configuration
 " Plug 'morhetz/gruvbox'
+"
 " Dracula:
-" https://draculatheme.com/vim
-Plug 'dracula/vim', { 'as': 'dracula' }
+    " https://draculatheme.com/vim
+    Plug 'dracula/vim', { 'as': 'dracula' }
 
 " " Troubleshooting plugin
 " " Vim Script

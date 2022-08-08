@@ -10,10 +10,16 @@ tap "superbrothers/zsh-kubectl-prompt"
 brew "apr-util"
 # GitOps Continuous Delivery for Kubernetes
 brew "argocd"
+# Automatic configure script builder
+brew "autoconf"
+# Tool for generating GNU Standards-compliant Makefiles
+brew "automake"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Google's own build tool
 brew "bazel"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # New way to see and navigate directory trees
 brew "broot"
 # Platform built on V8 to build network applications
@@ -24,6 +30,8 @@ brew "cdk8s"
 brew "openldap"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Generic library support script
+brew "libtool"
 # Libraries to talk to Microsoft SQL Server and Sybase databases
 brew "freetds"
 # Network authentication protocol
@@ -71,7 +79,7 @@ brew "kubeconform"
 # MongoDB Shell to connect, configure, query, and work with your MongoDB database
 brew "mongosh"
 # Ambitious Vim-fork focused on extensibility and agility
-brew "neovim", args: ["HEAD"]
+brew "neovim"
 # HTTP/2 C Library
 brew "nghttp2"
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
@@ -90,6 +98,8 @@ brew "prometheus"
 brew "pure"
 # Secure and efficient FTP server
 brew "pure-ftpd"
+# Python version management
+brew "pyenv"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.9"
 # Search tool like grep and The Silver Searcher

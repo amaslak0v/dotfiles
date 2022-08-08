@@ -21,10 +21,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "amaslakov-io-osx"
-sudo scutil --set HostName "amaslakov-io-osx"
-sudo scutil --set LocalHostName "amaslakov-io-osx"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "amaslakov-io-osx"
+sudo scutil --set ComputerName "amaslakov-osx"
+sudo scutil --set HostName "amaslakov-osx"
+sudo scutil --set LocalHostName "amaslakov-osx"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "amaslakov-osx"
 
 # Disable the sound effects on boot
 # sudo nvram SystemAudioVolume=" "
@@ -164,7 +164,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
 # Just maximize keyrepeat speed = FAST, Delay = short
-defaults write NSGlobalDomain KeyRepeat -int 5
+defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 25
 
 # Set language and text formats

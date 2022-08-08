@@ -10,6 +10,12 @@
 
 Backup scripts and environments
 
+Apps:
+- Transmission
+- VSCODE
+- Cakebrew
+- DBeaver
+
 
 ### TODO
 dump installed APPS:
