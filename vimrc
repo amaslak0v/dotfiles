@@ -125,6 +125,7 @@ let g:startify_lists = [
 let g:startify_bookmarks = [
     \ {'v': '~/.vimrc'},
     \ {'z': '~/.zshrc'},
+    \ {'t': '~/.tmux.conf'},
     \ {'r': '~/.config/nvim/README.md'},
 \ ]
 
@@ -164,6 +165,7 @@ let g:coc_global_extensions = [
             \ 'coc-sh',
             \ 'coc-yaml',
             \ 'coc-spell-checker',
+            \ 'coc-tabnine',
             \ 'coc-pairs'
             \ ]
 
@@ -211,8 +213,9 @@ endif
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+"             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -357,11 +360,15 @@ Plug 'vim-airline/vim-airline-themes'
     " Auto change the directory to the current file I'm working on
     " autocmd BufEnter * lcd %:p:h
     " UI
-    let NERDTreeMinimalUI=1
-    let NERDTreeDirArrows=1
+    " let NERDTreeMinimalUI=1
+    " let NERDTreeDirArrows=1
     " default arrows
-    let g:NERDTreeDirArrowExpandable = '▸'
-    let g:NERDTreeDirArrowCollapsible = '▾'
+    " let g:NERDTreeDirArrowExpandable = '▸'
+    " let g:NERDTreeDirArrowCollapsible = '▾'
+
+    " Icons for Nerd
+    " https://github.com/ryanoasis/vim-devicons
+    " Plug 'ryanoasis/vim-devicons'
 
 
 
