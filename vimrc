@@ -303,7 +303,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
     let g:coc_snippet_next = '<tab>'
 
 
+
+""""""
+" Tabnine: Code Complition
+" https://www.tabnine.com/install/neovim
+" :CocInstall coc-tabnine || check L:160
     
+
 """"""""""""""""
 " Core Plugins "
 """"""""""""""""
@@ -367,15 +373,11 @@ Plug 'vim-airline/vim-airline-themes'
     " Auto change the directory to the current file I'm working on
     " autocmd BufEnter * lcd %:p:h
     " UI
-    " let NERDTreeMinimalUI=1
-    " let NERDTreeDirArrows=1
+    let NERDTreeMinimalUI=1
+    let NERDTreeDirArrows=1
     " default arrows
-    " let g:NERDTreeDirArrowExpandable = '▸'
-    " let g:NERDTreeDirArrowCollapsible = '▾'
-
-    " Icons for Nerd
-    " https://github.com/ryanoasis/vim-devicons
-    Plug 'ryanoasis/vim-devicons'
+    let g:NERDTreeDirArrowExpandable = '▸'
+    let g:NERDTreeDirArrowCollapsible = '▾'
 
 """""""
 " FZF "
