@@ -2,6 +2,7 @@ tap "argoproj/tap"
 tap "aws/tap"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "jesseduffield/lazydocker"
 tap "ringohub/redis-cli"
@@ -65,7 +66,7 @@ brew "helm"
 # Improved top (interactive process viewer)
 brew "htop"
 # Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
+brew "python@3.10", link: false
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # Istio configuration command-line utility
@@ -122,6 +123,8 @@ brew "tldr"
 brew "tmux"
 # CLI tool that moves files or folder to the trash
 brew "trash"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
 # Executes a program periodically, showing output fullscreen
 brew "watch"
 # Internet file retriever
