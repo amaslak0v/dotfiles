@@ -2,7 +2,7 @@
 # Anton Maslakov  
 Mail:     amaslakov@icloud.com  
 LinkedIn: [amaslakov](https://www.linkedin.com/in/amaslakov/)  
-Github:   [amaslak0v GitHub](https://github.com/amaslak0v)  
+Github:   [amaslak0v](https://github.com/amaslak0v)  
 
 # $whoami
 Tech savvy engineer with extensive background (6+ years) in Software Engineering / SRE / Cloud & DevOps fields:
