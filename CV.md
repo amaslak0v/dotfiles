@@ -93,7 +93,7 @@ Looking for:
     👥Team: Service Team - 5 developers + 2 shared DevOps  
     🛠Buzzwords: AWS, GCP, k8, Docker, Jenkins(Groovy pipelines), Python, GO  
     🎖Milestones:   
-      * Reduced 15% AWS account costs, by using on-spot instances, storage shrinking, performance limitations, and cleanup procedures
+      * Reduced 15% AWS account costs, by on-spot instances, storage shrinking, performance limitations and cleanup procedures.
       * Migrated infrastructure to GCP, saving 50% costs and increasing system resiliency.
       * Passed Google certification for `GCP professional cloud architect` (2019)
 
