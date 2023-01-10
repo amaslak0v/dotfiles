@@ -35,7 +35,7 @@ Looking for:
 
 # Selected projects:
 
-## ⚽️ Scoutlike [Startup] | 2019-2022
+## ⚽️ Scoutlike [Startup] | Aug 2019 -  Nov 2022
 
     ℹ️Project: Bringing digital transfers and online scouting to the football industry.  
     💼Position: Co-Founder [ Architect / Backend / Infrastructure ] 
@@ -50,7 +50,7 @@ Looking for:
       * `Do things that don't scale` approach, which led to rapid delivery cycles: from 3 month to 2 weeks.
 
 ---
-## 🌏 Inspectorio [Product] | 2021-2022
+## 🌏 Inspectorio [Product] | Aug 2021 - Nov 2022
 
     ℹ️Project: SaaS b2b product which tracks and analyzes the company's supply chain.
     💼Position: SRE [Site Reliability Engineer] / Software Engineer [ Python ]
@@ -65,7 +65,7 @@ Looking for:
       * Developed data pipelines for (Python, SQL, Airflow), provided fine grained business metrics for customers retention.
 
 ---
-## 🤖 Workfusion  [Product] | 2019-2021
+## 🤖 Workfusion  [Product] | Jun 2019 - May 2021
 
     ℹ️Project: Enterprise RPA platform which drives accounting automation for banks.
     💼Position: Infrastructure Engineer (DevOps)  
@@ -80,7 +80,7 @@ Looking for:
       * Automated environment setup (CD) with Terraform, Ansible and Groovy. Freed 30% DevOps team capacity.
 
 ---
-## 🏭 EPAM Systems  [Outsource] | 2017-2019
+## 🏭 EPAM Systems  [Outsource] | Oct 2017 - Jul 2019
 
 ### 📡 INFOBLOX 
 
