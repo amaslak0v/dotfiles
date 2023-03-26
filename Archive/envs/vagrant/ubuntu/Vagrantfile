@@ -1,0 +1,33 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+# ssh vagrant@192.168.10.10 -o StrictHostKeyChecking=no
+
+Vagrant.configure("2") do |config|
+    config.vm.box = "ubuntu"
+    config.vm.box = "ubuntu/trusty64"
+
+    config.vm.network :private_network, ip: "192.168.10.11"
+    config.vm.network:forwarded_port,guest:80,host:8080,auto_correct:true
+    config.vm.network:forwarded_port,guest:8080,host:8090,auto_correct:true
+
+    # Adding custom(host's) key
+    config.ssh.insert_key = false 
+    config.ssh.private_key_path = ['~/.vagrant.d/insecure_private_key', '~/.ssh/id_rsa'] 
+    config.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys" 
+    config.vm.provision "shell", inline: <<-EOC
+      sudo sed -i -e "\\#PasswordAuthentication yes# s#PasswordAuthentication yes#PasswordAuthentication no#g" /etc/ssh/sshd_config
+      sudo systemctl restart sshd.service
+      echo "finished"
+    EOC
+
+    config.vm.provider 'virtualvm' do |v|
+            v.memory = "2000"
+    end
+
+    #config.vm.provision "shell", path: "./jenkins-agent.sh"
+    #config.vm.provision "shell", path: "../provisioning/vagrant-boot.sh"
+    #config.vm.provision "ansible" do |ansible|
+      #ansible.playbook = "../../installer/dotfiles.yml"
+    #end
+    
+end
