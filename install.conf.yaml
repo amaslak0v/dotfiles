@@ -6,29 +6,17 @@
 - clean: ['~']
 
 - link:
-    ~/.tmux.conf: tmux.conf
-    ~/.zshrc: zshrc
-    ~/.config/nvim/init.vim: vimrc
-    ~/.config/starship.toml: starship.toml
-    ~/.macos: macos
-    ~/.gitconfig: gitconfig
-    ~/.config/karabiner: karabiner
+    ~/.tmux.conf: ./config/sys/tmux.conf
+    ~/.zshrc: ./config/sys/zshrc
+    ~/.config/nvim/init.vim: ./config/sys/vimrc
+    ~/.config/starship.toml: ./config/sys/starship.toml
+    ~/.osx_configs: ./config/sys/osx.sh
+    ~/.gitconfig: ./config/sys/gitconfig
+    ~/.config/karabiner: ./config/karabiner
 
 - create:
     - ~/workspace
 
 - shell:
   - [chsh -s $(which zsh)]
-  - [git submodule update --init --recursive, Installing submodules]
   - [brew bundle dump --describe -f]
-  - [bash macos]
-
-- crontab:
-  - key: SHELL
-    value: /bin/bash
-    platform: darwin
-  - key: RANDOM_DELAY
-    value: 10
-  - time: 0 5 * * *
-    command: brew update && brew upgrade
-    platform: darwin  

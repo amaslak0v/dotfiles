@@ -19,8 +19,6 @@ brew "automake"
 brew "bat"
 # Google's own build tool
 brew "bazel"
-# Manage compile and link flags for libraries
-brew "pkg-config"
 # New way to see and navigate directory trees
 brew "broot"
 # Platform built on V8 to build network applications
@@ -61,12 +59,14 @@ brew "go"
 brew "grep"
 # Like cURL, but for gRPC
 brew "grpcurl"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Kubernetes package manager
 brew "helm"
 # Improved top (interactive process viewer)
 brew "htop"
 # Interpreted, interactive, object-oriented programming language
-brew "python@3.10", link: false
+brew "python@3.10"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # Istio configuration command-line utility
@@ -85,6 +85,8 @@ brew "neovim"
 brew "nghttp2"
 # HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server
 brew "nginx"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
 # Highly capable, feature-rich programming language
 brew "perl"
 # General-purpose scripting language
@@ -101,6 +103,8 @@ brew "pure"
 brew "pure-ftpd"
 # Python version management
 brew "pyenv"
+# Pyenv plugin to manage virtualenv
+brew "pyenv-virtualenv"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.9"
 # Search tool like grep and The Silver Searcher
@@ -133,7 +137,7 @@ brew "wget"
 brew "yamllint"
 # JavaScript package manager
 brew "yarn"
-# Process YAML documents from the CLI
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
 brew "yq"
 # Kubectl Argo Rollouts Plugin.
 brew "argoproj/tap/kubectl-argo-rollouts"
@@ -143,3 +147,9 @@ brew "aws/tap/copilot-cli"
 brew "ringohub/redis-cli/redis-cli"
 # Display information about the kubectl current context and namespace in zsh prompt.
 brew "superbrothers/zsh-kubectl-prompt/zsh-kubectl-prompt"
+# Archive manager for data compression and backups
+cask "rar"
+# Displays all open files and sockets in use by all running processes
+cask "sloth"
+# Tool to invert scroll direction for physical scroll wheels
+cask "unnaturalscrollwheels"

@@ -1,5 +1,5 @@
-.PHONY: run
-run::
+.PHONY: install
+install:
 	@echo "Running dotbot"
-	./install
+	dotbot -c ./install.conf.yaml
 	@echo "Symlink Alfred and BTT settings via UI"
