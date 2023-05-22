@@ -10,8 +10,8 @@ autocmd BufEnter * :syntax sync fromstart
 
 " Numbers:
 set nu " Set line numbers
-" turn relative line numbers on
-" set relativenumber
+set relativenumber
+
 hi CursorLine cterm=NONE ctermbg=235 guibg=#262626  " Set cursorline background color
 hi ColorColumn cterm=NONE ctermbg=235 guibg=#262626 " Set overlenght limits highlight
 set cursorline                                      " Enables cursor line position tracking:

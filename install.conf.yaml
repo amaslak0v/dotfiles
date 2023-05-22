@@ -10,6 +10,8 @@
     ~/.zshrc: ./config/sys/zshrc
     ~/.config/nvim/init.vim: ./config/sys/vimrc
     ~/.config/starship.toml: ./config/sys/starship.toml
+    ~/.config/yabai/ : ./config/yabai/
+    ~/.config/skhd/ : ./config/skhd/
     ~/.osx_configs: ./config/sys/osx.sh
     ~/.gitconfig: ./config/sys/gitconfig
     ~/.config/karabiner: ./config/karabiner
