@@ -99,7 +99,7 @@
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "k",
+                                    "key_code": "h",
                                     "modifiers": {
                                         "mandatory": [
                                             "fn"
@@ -257,7 +257,7 @@
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
                     "simple_modifications": [],
-                    "treat_as_built_in_keyboard": false
+                    "treat_as_built_in_keyboard": true
                 },
                 {
                     "disable_built_in_keyboard_if_exists": false,

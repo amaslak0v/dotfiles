@@ -48,7 +48,7 @@ alias l="exa -la --group-directories-first"
 alias wr='cd ~/Workspace/repos/'
 alias kh='cd ~/Workspace/repos/kitchenhub'
 alias da='cd ~/Workspace/repos/DA'
-alias bk='cd ~/Workspace/repos/balik'
+alias balik='cd ~/Workspace/repos/balik'
 
 
 # ZSH plugins
