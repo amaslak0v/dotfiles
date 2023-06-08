@@ -16,6 +16,8 @@ export PATH="$PATH:/usr/sbin"
 export PATH="$PATH:$HOME/bin"
 export PYENV_ROOT="$HOME/.pyenv"
 export GCLOUD_PATH='/Users/antonmaslakov/.gcloud-sdk'
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export PATH=$JAVA_HOME/bin:$PATH
 
 # Define aliases
 alias zshrc="vim ~/.zshrc"
@@ -40,6 +42,13 @@ alias ip='curl ifconfig.co'
 alias local-ip='ipconfig getifaddr en0'
 alias tf='terraform'
 alias subl='open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+alias l="exa -la --group-directories-first"
+
+### 
+alias wr='cd ~/Workspace/repos/'
+alias kh='cd ~/Workspace/repos/kitchenhub'
+alias da='cd ~/Workspace/repos/DA'
+alias bk='cd ~/Workspace/repos/balik'
 
 
 # ZSH plugins
