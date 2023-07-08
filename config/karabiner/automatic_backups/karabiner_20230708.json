@@ -179,7 +179,6 @@
                         "description": "Swap CTRL with FN",
                         "manipulators": [
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "left_control",
                                     "modifiers": {
@@ -192,10 +191,10 @@
                                     {
                                         "key_code": "fn"
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "fn",
                                     "modifiers": {
@@ -208,7 +207,8 @@
                                     {
                                         "key_code": "left_control"
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             }
                         ]
                     },
@@ -216,7 +216,6 @@
                         "description": "WC3: [Hero Selector] ALT + number",
                         "manipulators": [
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "1",
                                     "modifiers": {
@@ -232,10 +231,10 @@
                                     {
                                         "key_code": "f1"
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "2",
                                     "modifiers": {
@@ -251,10 +250,10 @@
                                     {
                                         "key_code": "f2"
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "3",
                                     "modifiers": {
@@ -270,16 +269,15 @@
                                     {
                                         "key_code": "f3"
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             }
-
                         ]
                     },
                     {
                         "description": "WC3: [Item Selector] ALT + keys -> keypad_numbers",
                         "manipulators": [
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "q",
                                     "modifiers": {
@@ -295,7 +293,8 @@
                                     {
                                         "key_code": "keypad_7"
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
                                 "from": {
@@ -356,7 +355,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "z",
+                                    "key_code": "e",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_option"
@@ -375,7 +374,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "x",
+                                    "key_code": "d",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_option"
@@ -676,7 +675,7 @@
                 "delay_milliseconds_before_open_device": 1000
             },
             "selected": true,
-            "simple_modifications": [ ],
+            "simple_modifications": [],
             "virtual_hid_keyboard": {
                 "country_code": 0,
                 "indicate_sticky_modifier_keys_state": true,
