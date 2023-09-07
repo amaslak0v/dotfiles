@@ -95,6 +95,51 @@
                         ]
                     },
                     {
+                        "description": "OSX Defaults: Mission Controll by CMD+\\",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "grave_accent_and_tilde",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "mission_control"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "OSX Defaults: App Windows by Option+\\",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "grave_accent_and_tilde",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "non_us_backslash",
+                                        "modifiers": [
+                                                "left_command"
+                                            ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Fn + H/J/K/L to Arrow Keys",
                         "manipulators": [
                             {
@@ -179,7 +224,6 @@
                         "description": "Swap CTRL with FN",
                         "manipulators": [
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "left_control",
                                     "modifiers": {
@@ -192,10 +236,10 @@
                                     {
                                         "key_code": "fn"
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             },
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "fn",
                                     "modifiers": {
@@ -208,193 +252,58 @@
                                     {
                                         "key_code": "left_control"
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             }
                         ]
                     },
                     {
-                        "description": "WC3: [Hero Selector] ALT + number",
+                        "description": "Switch tabs in an application | Option + TAB",
                         "manipulators": [
                             {
-                                "type": "basic",
                                 "from": {
-                                    "key_code": "1",
+                                    "key_code": "tab",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_option"
-                                        ],
-                                        "optional": [
-                                            "any"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "f1"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "2",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_option"
-                                        ],
-                                        "optional": [
-                                            "any"
+                                        "key_code": "tab",
+                                        "modifiers": [
+                                            "left_control"
                                         ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "f2"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "3",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_option"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "f3"
-                                    }
-                                ]
-                            }
-
-                        ]
-                    },
-                    {
-                        "description": "WC3: [Item Selector] ALT + keys -> keypad_numbers",
-                        "manipulators": [
-                            {
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "q",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_option"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "keypad_7"
-                                    }
-                                ]
-                            },
-                            {
-                                "from": {
-                                    "key_code": "w",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_option"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "keypad_8"
                                     }
                                 ],
                                 "type": "basic"
                             },
                             {
                                 "from": {
-                                    "key_code": "a",
+                                    "key_code": "tab",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_option"
-                                        ],
-                                        "optional": [
-                                            "any"
+                                            "left_option",
+                                            "left_shift"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "keypad_4"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "s",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_option"
-                                        ],
-                                        "optional": [
-                                            "any"
+                                        "key_code": "tab",
+                                        "modifiers": [
+                                            "left_control",
+                                            "left_shift"
                                         ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "keypad_5"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "z",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_option"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "keypad_1"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "x",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_option"
-                                        ],
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "keypad_2"
                                     }
                                 ],
                                 "type": "basic"
                             }
                         ]
                     }
-                ]
+                ],
+                "title": "My custom shortcuts"
             },
             "devices": [
                 {
@@ -676,7 +585,7 @@
                 "delay_milliseconds_before_open_device": 1000
             },
             "selected": true,
-            "simple_modifications": [ ],
+            "simple_modifications": [],
             "virtual_hid_keyboard": {
                 "country_code": 0,
                 "indicate_sticky_modifier_keys_state": true,
