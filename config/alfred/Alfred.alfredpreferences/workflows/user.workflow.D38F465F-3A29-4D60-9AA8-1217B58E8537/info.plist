@@ -348,6 +348,10 @@
 				<false/>
 				<key>focusedappvariablename</key>
 				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -372,7 +376,7 @@ on alfred_script(q)
 	try
 		tell application "System Events"
 			tell process "Notes"
-				-- Get search string 
+				-- Get search string
 				if q contains "/ICNote/p" or q contains "/ICFolder/p" then
 					set AppleScript's text item delimiters to ","
 					set userQuery to text from text item 4 to text item -1 of q
@@ -486,6 +490,12 @@ fi</string>
 				<key>focusedappvariable</key>
 				<false/>
 				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>hotstring</key>
 				<string></string>
 				<key>leftcursor</key>
 				<false/>
@@ -849,7 +859,7 @@ fi</string>
 
 on alfred_script(q)
 	try
-		if q contains "/ICNote/p" or q contains "/ICFolder/p" then 
+		if q contains "/ICNote/p" or q contains "/ICFolder/p" then
 			set AppleScript's text item delimiters to ","
 			set identifier to text item 1 of q
 			set itemID to text item 2 of q
@@ -871,7 +881,7 @@ on alfred_script(q)
 					else
 						show note id itemID in account id accountID
 						show note id itemID in account id accountID
-					end if 
+					end if
 				end if
 			else if q contains "/ICFolder/p" then
 				-- Show user-requested folder
@@ -881,7 +891,7 @@ on alfred_script(q)
 				else
 					show folder id itemID in account id accountID
 					show folder id itemID in account id accountID
-				end if 
+				end if
 			else
 				-- Create new note from user query
 				tell default account to make new note at default folder with properties {body:"&lt;div&gt;&lt;h1&gt;" &amp; q &amp; "&lt;/h1&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;"}
@@ -1174,154 +1184,156 @@ Environment Variables
 		<key>060809AF-8160-439A-85F9-D672664E3A1A</key>
 		<dict>
 			<key>xpos</key>
-			<integer>50</integer>
+			<real>50</real>
 			<key>ypos</key>
-			<integer>160</integer>
+			<real>160</real>
 		</dict>
 		<key>092EA403-A1D7-49DA-B8DD-8D785DDAB3B9</key>
 		<dict>
 			<key>note</key>
 			<string>Create new note</string>
 			<key>xpos</key>
-			<integer>605</integer>
+			<real>605</real>
 			<key>ypos</key>
-			<integer>800</integer>
+			<real>800</real>
 		</dict>
 		<key>0B8A749B-E2E7-4B1B-9711-1C77A495BD97</key>
 		<dict>
 			<key>note</key>
 			<string>Check for updates if more than 24 hours since last check</string>
 			<key>xpos</key>
-			<integer>875</integer>
+			<real>875</real>
 			<key>ypos</key>
-			<integer>450</integer>
+			<real>450</real>
 		</dict>
 		<key>19CCE92E-2C07-4CB4-9874-E29AA3563F37</key>
 		<dict>
 			<key>note</key>
 			<string>⌥ Move note to folder</string>
 			<key>xpos</key>
-			<integer>605</integer>
+			<real>605</real>
 			<key>ypos</key>
-			<integer>665</integer>
+			<real>665</real>
 		</dict>
 		<key>1A6D4810-ABAF-4604-9639-CC1327A279B7</key>
 		<dict>
 			<key>xpos</key>
-			<integer>50</integer>
+			<real>50</real>
 			<key>ypos</key>
-			<integer>50</integer>
+			<real>50</real>
 		</dict>
 		<key>2A3C974B-57DF-4601-8EFC-4158CAA2005A</key>
 		<dict>
 			<key>note</key>
 			<string>Paste link to note</string>
 			<key>xpos</key>
-			<integer>50</integer>
+			<real>50</real>
 			<key>ypos</key>
-			<integer>935</integer>
+			<real>935</real>
 		</dict>
 		<key>4D8E3444-14C2-4D0E-A8C1-AA67988AE358</key>
 		<dict>
 			<key>note</key>
-			<string>Show note/folder 
+			<string>Show note/folder
 or create note</string>
 			<key>xpos</key>
-			<integer>605</integer>
+			<real>605</real>
 			<key>ypos</key>
-			<integer>515</integer>
+			<real>515</real>
 		</dict>
 		<key>5BC84589-FA2A-459F-982A-54B612C9BA7F</key>
 		<dict>
 			<key>note</key>
 			<string>Search note titles</string>
 			<key>xpos</key>
-			<integer>290</integer>
+			<real>290</real>
 			<key>ypos</key>
-			<integer>105</integer>
+			<real>105</real>
 		</dict>
 		<key>6740BCB6-6818-49E2-A88A-9D19EA132F08</key>
 		<dict>
 			<key>note</key>
 			<string>⌥ Copy link to note</string>
 			<key>xpos</key>
-			<integer>605</integer>
+			<real>605</real>
 			<key>ypos</key>
-			<integer>245</integer>
+			<real>245</real>
 		</dict>
 		<key>69AB99D4-3231-4959-828B-383C93051FCC</key>
 		<dict>
 			<key>note</key>
 			<string>Create new note</string>
 			<key>xpos</key>
-			<integer>290</integer>
+			<real>290</real>
 			<key>ypos</key>
-			<integer>800</integer>
+			<real>800</real>
 		</dict>
 		<key>6F3DD843-22EF-4A97-BAF8-511894B5202D</key>
 		<dict>
 			<key>note</key>
 			<string>Search folder names</string>
 			<key>xpos</key>
-			<integer>290</integer>
+			<real>290</real>
 			<key>ypos</key>
-			<integer>375</integer>
+			<real>375</real>
 		</dict>
 		<key>A057AD2C-473A-4823-8624-8891E5C187F6</key>
 		<dict>
 			<key>note</key>
 			<string>Search note titles</string>
 			<key>xpos</key>
-			<integer>290</integer>
+			<real>290</real>
 			<key>ypos</key>
-			<integer>935</integer>
+			<real>935</real>
 		</dict>
 		<key>B9ECD7D6-EA33-4E2E-AE3E-4E22EEDD6097</key>
 		<dict>
 			<key>note</key>
 			<string>Search note bodies</string>
 			<key>xpos</key>
-			<integer>290</integer>
+			<real>290</real>
 			<key>ypos</key>
-			<integer>240</integer>
+			<real>240</real>
 		</dict>
 		<key>CAA4E408-453B-4518-B2B1-CD024BAA493C</key>
 		<dict>
 			<key>note</key>
 			<string>Search hashtags</string>
 			<key>xpos</key>
-			<integer>290</integer>
+			<real>290</real>
 			<key>ypos</key>
-			<integer>510</integer>
+			<real>510</real>
 		</dict>
 		<key>CE746687-24FD-4E5C-841F-0D4826E007C4</key>
 		<dict>
 			<key>note</key>
 			<string>⇧ Search in Notes toolbar</string>
 			<key>xpos</key>
-			<integer>605</integer>
+			<real>605</real>
 			<key>ypos</key>
-			<integer>95</integer>
+			<real>95</real>
 		</dict>
 		<key>DC692798-E272-4547-BE83-4B63B823E456</key>
 		<dict>
 			<key>note</key>
 			<string>⌘ Copy note body</string>
 			<key>xpos</key>
-			<integer>605</integer>
+			<real>605</real>
 			<key>ypos</key>
-			<integer>380</integer>
+			<real>380</real>
 		</dict>
 		<key>E91B4B80-CB26-4BC2-B808-5EC8A43F3E25</key>
 		<dict>
 			<key>note</key>
 			<string>Paste link to note</string>
 			<key>xpos</key>
-			<integer>605</integer>
+			<real>605</real>
 			<key>ypos</key>
-			<integer>935</integer>
+			<real>935</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>variables</key>
 	<dict>
 		<key>fallbackCreateNew</key>

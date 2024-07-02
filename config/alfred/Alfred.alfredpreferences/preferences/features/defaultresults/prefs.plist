@@ -8,7 +8,11 @@
 	<integer>1</integer>
 	<key>showContacts</key>
 	<false/>
+	<key>showDocuments</key>
+	<true/>
 	<key>showFolders</key>
+	<true/>
+	<key>showImages</key>
 	<true/>
 	<key>showUserDefined</key>
 	<array>

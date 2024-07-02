@@ -42,7 +42,7 @@ alias tf='terraform'
 alias subl='open /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 alias l="exa -la --group-directories-first"
 
-### 
+###
 alias wr='cd ~/Workspace/repos/'
 alias kh='cd ~/Workspace/repos/kitchenhub'
 alias da='cd ~/Workspace/repos/DA'
@@ -76,7 +76,7 @@ plugins=(
 # Use Oh-My-Zsh as shell
 source $ZSH/oh-my-zsh.sh
 
-# Resolve zsh-vi-mode unable to use ZSH: 
+# Resolve zsh-vi-mode unable to use ZSH:
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 
 export ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
@@ -130,3 +130,10 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 # Initialize Starship, a cross-shell prompt
 eval "$(starship init zsh)"
 
+
+# bun completions
+[ -s "/Users/antonmaslakov/.bun/_bun" ] && source "/Users/antonmaslakov/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
