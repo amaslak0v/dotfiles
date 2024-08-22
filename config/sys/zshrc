@@ -47,10 +47,14 @@ alias wr='cd ~/Workspace/repos/'
 alias kh='cd ~/Workspace/repos/kitchenhub'
 alias da='cd ~/Workspace/repos/DA'
 alias balik='cd ~/Workspace/repos/balik'
+alias dot='cd ~/.dotfiles/'
 
 
 # ZSH plugins
 plugins=(
+  colored-man-pages
+  colorize 
+  pip
   git
   aws
   gcloud

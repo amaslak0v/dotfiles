@@ -9,6 +9,4 @@ Configs:
     - zsh
     - osx
     - brewfile
-
 ---
-

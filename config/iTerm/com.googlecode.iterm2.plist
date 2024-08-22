@@ -6,6 +6,10 @@
 	<true/>
 	<key>AboutToPasteTabsWithCancel_selection</key>
 	<integer>2</integer>
+	<key>AiMaxTokens</key>
+	<integer>128000</integer>
+	<key>AiModel</key>
+	<string>gpt-4o</string>
 	<key>Default Bookmark Guid</key>
 	<string>ACCB2B4F-E509-41D0-972C-6665503649A5</string>
 	<key>GlobalKeyMap</key>
