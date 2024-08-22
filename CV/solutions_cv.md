@@ -3,13 +3,12 @@
 **Mail:** [amaslakov@icloud.com](mailto:amaslakov@icloud.com)  
 **LinkedIn:** [amaslakov](https://www.linkedin.com/in/amaslakov)  
 **Telegram:** [@amaslak0v](https://t.me/amaslak0v)  
-**GitHub:** [amaslak0v](https://github.com/amaslak0v)
 
 ---
 
 ## Summary
 
-Solutions engineer with 7+ years in tech, specializing in Cloud, SRE, and DevOps Extensive startup experience, product thinking, and hacker mindset Proven track record in delivering end-to-end tech solutions and optimizing infrastructure for reliability and scalability
+Solutions engineer with 7+ years in tech, specializing in Cloud, SRE, and DevOps. Extensive startup experience, product thinking and hacker mindset. Proven track record in delivering end-to-end tech solutions and optimizing infrastructure for reliability and scalability
 
 - Delivery: Managed full lifecycle projects from idea to production, minimizing time-to-market (TTM)
 - Reliability: Applied SRE best practices, DevOps culture, infrastructure scaling, on-call management, and infrastructure as code (IaC)
@@ -29,7 +28,7 @@ Solutions engineer with 7+ years in tech, specializing in Cloud, SRE, and DevOps
 - **Monitoring:** Prometheus, Grafana, ELK
 - **Databases:** Firestore, PostgreSQL, MySQL, DynamoDB
 - **OS & Networking:** DNS, SSH, TCP/IP, HTTPS, Nginx, UNIX/CentOS/Ubuntu/OSX
-- **Prototyping:** Figma, [Make.io](http://make.io/)
+- **Prototyping:** Figma, [Make.io](http://make.io)
 
 ### Soft
 
@@ -38,7 +37,7 @@ Solutions engineer with 7+ years in tech, specializing in Cloud, SRE, and DevOps
 - Judgment: Strategic decision-making, prioritization, business-oriented
 - Composure: On-call with major downtimes, team conflict resolution, offboarding 1:1s
 - Project Management: Agile/Scrum/Kanban ability to deliver estimated tech roadmap
-- Languages: Fluent English (B2+), Native Belarusian, Russian
+- Languages: English C1, Native Belarusian, Russian
 
 ---
 
@@ -67,7 +66,8 @@ Led and grew the engineering team Oversaw platform stability and monitoring, col
 
 > Digital transfers and online scouting for the football industry
 
-Led an engineering team of 3 in building a digital product from the ground up, focusing on delivering tech solutions Gained extensive expertise in startup operations, budgeting, and engineering tradeoffs while searching for product-market fit (PMF) through multiple iterations and pivots Held roles as Backend Engineer, DevOps, Solutions Architect (choosing tech stack, managing infrastructure, prototyping), and Product Manager (managing roadmap, decomposing features, updating user stories)
+Led an engineering team of 3 in building a digital product from the ground up, focusing on delivering tech solutions. Gained extensive expertise in startup operations, budgeting, and engineering tradeoffs while searching for MPF through multiple iterations and pivots.
+Held roles as Backend Engineer, DevOps, Solutions Architect - choosing tech stack, managing infrastructure, prototyping, and Product Manager - managing roadmap, decomposing features, updating user stories
 
 **Tooling:**
 
